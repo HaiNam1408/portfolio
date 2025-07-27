@@ -1,7 +1,17 @@
 {
-    "hello": "Xin chào thế giới!",
     "about": "Giới thiệu",
     "projects": "Dự án",
     "blogs": "Bài viết",
-    "contact": "Liên hệ"
+    "contact": "Liên hệ",
+    "intro": {
+        "hello": "Chào bạn, mình là",
+        "introduce": "Mình chuyên xây dựng các ứng dụng web có khả năng mở rộng, có thể bảo trì bằng các công nghệ hiện đại. Mình là người thích giải quyết các vấn đề phức tạp và biến chúng thành các giải pháp đơn giản.",
+        "resume": "CV của Nam",
+        "download": "Tải xuống",
+        "creative": "Sáng tạo",
+        "passionate": "Đam mê",
+        "fullstack": "Lập trình viên Fullstack",
+        "developer": "Lập trình viên",
+        "a": "Luôn"
+    }
 }

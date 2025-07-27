@@ -1,7 +1,17 @@
 {
-    "hello": "Hello world!",
     "about": "About me",
     "projects": "Projects",
     "blogs": "My blogs",
-    "contact": "Contact"
+    "contact": "Contact",
+    "intro": {
+        "hello": "Hi there, I'm",
+        "introduce": "I'm committed to building scalable, maintainable web applications using modern technologies. I love solving complex problems and turning them into elegant solutions.",
+        "resume": "My Resume",
+        "download": "Download",
+        "creative": "Creative",
+        "passionate": "Passionate",
+        "fullstack": "Fullstack Developer",
+        "developer": "Developer",
+        "a": "A"
+    }
 }

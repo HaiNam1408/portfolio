@@ -16,6 +16,7 @@ const Squares: React.FC<SquaresProps> = ({
   fillColor = "#000",
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -44,13 +45,17 @@ const Squares: React.FC<SquaresProps> = ({
         case "right":
           return { dx: 1, dy: 0 };
         case "diagonal":
-          return { dx: 1, dy: 1 };
         default:
           return { dx: 1, dy: 1 };
       }
     };
 
     const { dx, dy } = getDirection();
+
+    const setCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
 
     const initSquares = () => {
       squares = [];
@@ -71,10 +76,10 @@ const Squares: React.FC<SquaresProps> = ({
       }
     };
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    initSquares();
+    const resizeHandler = () => {
+      setCanvasSize();
+      initSquares();
+    };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -99,10 +104,22 @@ const Squares: React.FC<SquaresProps> = ({
         );
       });
 
-      requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animate);
     };
 
+    // Init
+    setCanvasSize();
+    initSquares();
     animate();
+
+    // Listen to resize
+    window.addEventListener("resize", resizeHandler);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
   }, [speed, squareSize, direction, borderColor, fillColor]);
 
   return (
