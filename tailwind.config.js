@@ -11,6 +11,9 @@ export default {
         sans: ['Asap', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
+      colors: {
+        primary: '#fde68a',
+      },
     },
   },
   plugins: [],

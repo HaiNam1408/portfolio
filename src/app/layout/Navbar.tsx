@@ -4,15 +4,21 @@ import type { Theme } from "../../hooks";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
-type NavebarProps = {
+type NavbarProps = {
   theme: string;
   setTheme: (theme: Theme) => void;
 };
 
-const Navbar = (props: NavebarProps) => {
+const Navbar = ({ theme, setTheme }: NavbarProps) => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const { theme, setTheme } = props;
-  const [lang, setLang] = useState(localStorage.getItem("i18nextLng") || "en");
+  const [deviceWidth, setDeviceWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
+  const [lang, setLang] = useState(
+    typeof window !== "undefined"
+      ? localStorage.getItem("i18nextLng") || "en"
+      : "en"
+  );
   const { t, i18n } = useTranslation();
 
   const handleLanguageChange = () => {
@@ -23,18 +29,22 @@ const Navbar = (props: NavebarProps) => {
   };
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleResize = () => setDeviceWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
     let lastScrollY = window.scrollY;
     let ticking = false;
 
     const handleScroll = () => {
       lastScrollY = window.scrollY;
 
-      if (!ticking) {
+      if (!ticking && deviceWidth > 768) {
         window.requestAnimationFrame(() => {
           const maxScroll = 1000;
           const progress = Math.min(lastScrollY / maxScroll, 1);
           setScrollProgress(progress);
-
           ticking = false;
         });
         ticking = true;
@@ -42,10 +52,14 @@ const Navbar = (props: NavebarProps) => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
-  const navWidth = 80 - scrollProgress * 30;
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [deviceWidth]);
+
+  const navWidth = deviceWidth < 768 ? 100 : 80 - scrollProgress * 30;
 
   return (
     <motion.div
@@ -71,10 +85,11 @@ const Navbar = (props: NavebarProps) => {
           boxShadow: `0 0 10px rgba(0, 0, 0, ${scrollProgress * 0.2})`,
         }}
       >
-        <a href="/" className="text-lg">
+        <a href="/" className="text-lg font-semibold">
           Hainam
         </a>
-        <div className="flex">
+
+        <div className="hidden md:flex">
           <a href="#" className="px-4">
             {t("common.about")}
           </a>
@@ -88,13 +103,15 @@ const Navbar = (props: NavebarProps) => {
             {t("common.contact")}
           </a>
         </div>
-        <div className="flex gap-8">
+
+        <div className="flex gap-6 items-center">
           <div
-            className="cursor-pointer"
-            onClick={() => handleLanguageChange()}
+            className="cursor-pointer font-medium"
+            onClick={handleLanguageChange}
           >
-            {lang === "en" ? "EN" : "VI"}
+            {lang.toUpperCase()}
           </div>
+
           <div
             className="cursor-pointer hover:scale-110 duration-200"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
