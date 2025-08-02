@@ -9,7 +9,11 @@ export function useTheme() {
 
     useEffect(() => {
         const root = window.document.documentElement;
-        root.classList.toggle('dark');
+        if (theme === 'dark') {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
     }, [theme]);
 
     const changeTheme = (newTheme: Theme) => {

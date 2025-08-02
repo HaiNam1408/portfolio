@@ -11,7 +11,7 @@ function Introduce() {
       {/* Avatar Section */}
       <div className="w-full md:w-1/3 flex justify-center md:justify-start">
         <TiltedCard
-          imageSrc="src/assets/avatar.jpg"
+          imageSrc="/public/images/avatar.jpg"
           altText="Phạm Hải Nam - Developer"
           captionText="Phạm Hải Nam - Developer"
           rotateAmplitude={12}
@@ -19,6 +19,17 @@ function Introduce() {
           showMobileWarning={false}
           showTooltip={true}
           displayOverlayContent={true}
+          overlayContent={
+            <div className="flex items-center gap-2 px-4 py-2 m-4 rounded-full bg-white/10 backdrop-blur-lg border border-white/30 shadow-lg">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-white font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]">
+                Available for work
+              </span>
+            </div>
+          }
         />
       </div>
 
