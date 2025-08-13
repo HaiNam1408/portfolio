@@ -86,7 +86,7 @@ const Navbar = ({ theme, setTheme }: NavbarProps) => {
         }}
       >
         <a href="/" className="text-lg font-semibold">
-          Hainam
+          Hainam.
         </a>
 
         <div className="hidden md:flex">
