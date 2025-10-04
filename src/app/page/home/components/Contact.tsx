@@ -1,10 +1,284 @@
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { Mail, Send, Github, Linkedin, Instagram, MapPin, Phone } from "lucide-react";
 
 function Contact() {
-    return (
-        <div>
-            Contact
+  const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      
+      setTimeout(() => setSubmitStatus(null), 3000);
+    }, 2000);
+  };
+
+  const socialLinks = [
+    {
+      name: "GitHub",
+      icon: <Github size={24} />,
+      url: "https://github.com/HaiNam1408",
+      color: "hover:text-gray-400",
+    },
+    {
+      name: "LinkedIn",
+      icon: <Linkedin size={24} />,
+      url: "https://linkedin.com",
+      color: "hover:text-blue-400",
+    },
+    {
+      name: "Instagram",
+      icon: <Instagram size={24} />,
+      url: "https://instagram.com",
+      color: "hover:text-pink-400",
+    },
+  ];
+
+  const contactInfo = [
+    {
+      icon: <Mail size={20} />,
+      text: "hainam@example.com",
+      href: "mailto:hainam@example.com",
+    },
+    {
+      icon: <Phone size={20} />,
+      text: "+84 123 456 789",
+      href: "tel:+84123456789",
+    },
+    {
+      icon: <MapPin size={20} />,
+      text: "Ho Chi Minh City, Vietnam",
+      href: null,
+    },
+  ];
+
+  return (
+    <section className="py-20 px-4">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto"
+      >
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white"
+          >
+            {t("common.contactSection.title")}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-lg text-gray-600 dark:text-gray-400"
+          >
+            {t("common.contactSection.subtitle")}
+          </motion.p>
         </div>
-    );
+
+        <div className="grid md:grid-cols-2 gap-12 items-end">
+          {/* Left: Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-6 text-left">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                  {t("common.contactSection.name")}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-gray-900 dark:text-white"
+                  placeholder="John Doe"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                  {t("common.contactSection.email")}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-gray-900 dark:text-white"
+                  placeholder="john@example.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                  {t("common.contactSection.subject")}
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-gray-900 dark:text-white"
+                  placeholder="Project Inquiry"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                  {t("common.contactSection.message")}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-lg bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none text-gray-900 dark:text-white"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+                  isSubmitting
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-primary text-black hover:bg-primary/80"
+                }`}
+              >
+                <Send size={18} />
+                {isSubmitting
+                  ? t("common.contactSection.sending")
+                  : t("common.contactSection.send")}
+              </motion.button>
+
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-lg bg-green-500/10 border border-green-500/50 text-green-500 text-center"
+                >
+                  {t("common.contactSection.success")}
+                </motion.div>
+              )}
+            </form>
+          </motion.div>
+
+          {/* Right: Contact Info & Social */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            {/* Contact Info */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <h3 className="text-2xl font-bold mb-6">
+                {t("common.contactSection.or")}
+              </h3>
+              <div className="space-y-4">
+                {contactInfo.map((info, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                      {info.icon}
+                    </div>
+                    {info.href ? (
+                      <a
+                        href={info.href}
+                        className="text-gray-300 hover:text-primary transition-colors"
+                      >
+                        {info.text}
+                      </a>
+                    ) : (
+                      <span className="text-gray-300">{info.text}</span>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="inset-0 bg-gradient-to-br from-primary/20 via-purple-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <h3 className="text-2xl font-bold mb-6">
+                {t("common.contactSection.socialTitle")}
+              </h3>
+              <div className="flex gap-4 justify-center">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 5 : - 5 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`p-4 rounded-lg bg-white/5 border border-white/10 hover:border-primary transition-all ${social.color}`}
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
+              </div>
+                <p className="text-xl font-semibold mt-5">Let's create something amazing!</p>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </section>
+  );
 }
 
 export default Contact;

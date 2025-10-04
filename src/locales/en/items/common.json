@@ -13,5 +13,41 @@
         "fullstack": "Fullstack Developer",
         "developer": "Developer",
         "a": "A"
+    },
+    "whatIDo": {
+        "title": "What I Do?",
+        "qa1": {
+            "question": "What technologies do you use?",
+            "answer": "I work with modern technologies including React, TypeScript, Node.js, Next.js, NestJS, TailwindCSS, and many more. I'm always learning and adapting to new tools."
+        },
+        "qa2": {
+            "question": "Do you do fullstack development?",
+            "answer": "Yes! I handle both frontend and backend tasks. From building responsive UIs to designing scalable APIs and databases, I cover the full development lifecycle."
+        },
+        "qa3": {
+            "question": "Do you love coding?",
+            "answer": "Absolutely! Coding is not just work for me, it's a passion. I enjoy solving complex problems and creating elegant solutions that make a difference."
+        }
+    },
+    "projectsSection": {
+        "title": "My Projects",
+        "subtitle": "A collection of my recent work",
+        "viewProject": "View Project",
+        "viewCode": "View Code",
+        "demo": "Live Demo"
+    },
+    "contactSection": {
+        "title": "Let's Work Together",
+        "subtitle": "Have a project in mind? Let's build something amazing together!",
+        "name": "Your Name",
+        "email": "Your Email",
+        "subject": "Subject",
+        "message": "Your Message",
+        "send": "Send Message",
+        "sending": "Sending...",
+        "success": "Message sent successfully!",
+        "error": "Failed to send message. Please try again.",
+        "or": "Or reach me at",
+        "socialTitle": "Connect with me"
     }
 }

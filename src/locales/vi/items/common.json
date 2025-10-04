@@ -13,5 +13,41 @@
         "fullstack": "Lập trình viên Fullstack",
         "developer": "Lập trình viên",
         "a": "Luôn"
+    },
+    "whatIDo": {
+        "title": "Tôi Làm Gì?",
+        "qa1": {
+            "question": "Bạn sử dụng công nghệ gì?",
+            "answer": "Tôi làm việc với các công nghệ hiện đại bao gồm React, TypeScript, Node.js, Next.js, NestJS, TailwindCSS và nhiều hơn nữa. Tôi luôn học hỏi và thích nghi với công cụ mới."
+        },
+        "qa2": {
+            "question": "Bạn có làm fullstack không?",
+            "answer": "Có! Tôi xử lý cả frontend và backend. Từ xây dựng giao diện responsive đến thiết kế API và database có khả năng mở rộng, tôi đảm nhận toàn bộ quy trình phát triển."
+        },
+        "qa3": {
+            "question": "Bạn có yêu thích lập trình không?",
+            "answer": "Chắc chắn rồi! Lập trình không chỉ là công việc với tôi, đó là đam mê. Tôi thích giải quyết vấn đề phức tạp và tạo ra giải pháp tuyệt vời tạo nên sự khác biệt."
+        }
+    },
+    "projectsSection": {
+        "title": "Dự Án Của Tôi",
+        "subtitle": "Bộ sưu tập các dự án gần đây",
+        "viewProject": "Xem Dự Án",
+        "viewCode": "Xem Code",
+        "demo": "Bản Demo"
+    },
+    "contactSection": {
+        "title": "Hãy Cùng Làm Việc",
+        "subtitle": "Có dự án trong đầu? Hãy cùng tạo nên điều tuyệt vời!",
+        "name": "Tên của bạn",
+        "email": "Email của bạn",
+        "subject": "Tiêu đề",
+        "message": "Lời nhắn",
+        "send": "Gửi Tin Nhắn",
+        "sending": "Đang gửi...",
+        "success": "Gửi tin nhắn thành công!",
+        "error": "Gửi thất bại. Vui lòng thử lại.",
+        "or": "Hoặc liên hệ qua",
+        "socialTitle": "Kết nối với tôi"
     }
 }

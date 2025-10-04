@@ -61,6 +61,13 @@ const Navbar = ({ theme, setTheme }: NavbarProps) => {
 
   const navWidth = deviceWidth < 768 ? 100 : 80 - scrollProgress * 30;
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <motion.div
       initial={{ y: -100 }}
@@ -74,32 +81,93 @@ const Navbar = ({ theme, setTheme }: NavbarProps) => {
       }}
     >
       <div
-        className="flex justify-between items-center rounded-full py-4 px-8"
+        className="flex justify-between items-center rounded-full py-4 px-8 border"
         style={{
           width: `${navWidth}vw`,
           backgroundColor:
             theme === "dark"
-              ? `rgba(0, 0, 0, ${scrollProgress})`
-              : `rgba(255, 255, 255, ${scrollProgress})`,
-          transition: "background-color 0.3s ease",
-          boxShadow: `0 0 10px rgba(0, 0, 0, ${scrollProgress * 0.2})`,
+              ? `rgba(0, 0, 0, ${scrollProgress * 0.8})`
+              : `rgba(255, 255, 255, ${0.9 + scrollProgress * 0.1})`,
+          borderColor:
+            theme === "dark"
+              ? `rgba(255, 255, 255, ${0.1 + scrollProgress * 0.2})`
+              : `rgba(0, 0, 0, ${0.1 + scrollProgress * 0.1})`,
+          color: theme === "dark" ? "#ffffff" : "#000000",
+          transition: "all 0.3s ease",
+          boxShadow: 
+            theme === "dark"
+              ? `0 0 10px rgba(0, 0, 0, ${scrollProgress * 0.3})`
+              : `0 4px 20px rgba(0, 0, 0, ${0.05 + scrollProgress * 0.1})`,
+          backdropFilter: "blur(10px)",
         }}
       >
-        <a href="/" className="text-lg font-semibold">
+        <a 
+          href="#home" 
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("home");
+          }}
+          className="text-lg font-semibold"
+          style={{ color: theme === "dark" ? "#ffffff" : "#000000" }}
+        >
           Hainam.
         </a>
 
         <div className="hidden md:flex">
-          <a href="#" className="px-4">
+          <a 
+            href="#about" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("about");
+            }}
+            className="px-4 transition-colors cursor-pointer"
+            style={{ 
+              color: theme === "dark" ? "#ffffff" : "#1f2937",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#fbbf24")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = theme === "dark" ? "#ffffff" : "#1f2937")}
+          >
             {t("common.about")}
           </a>
-          <a href="#" className="px-4">
+          <a 
+            href="#projects" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("projects");
+            }}
+            className="px-4 transition-colors cursor-pointer"
+            style={{ 
+              color: theme === "dark" ? "#ffffff" : "#1f2937",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#fbbf24")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = theme === "dark" ? "#ffffff" : "#1f2937")}
+          >
             {t("common.projects")}
           </a>
-          <a href="#" className="px-4">
+          <a 
+            href="#blogs" 
+            className="px-4 transition-colors cursor-pointer"
+            style={{ 
+              color: theme === "dark" ? "#ffffff" : "#1f2937",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#fbbf24")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = theme === "dark" ? "#ffffff" : "#1f2937")}
+          >
             {t("common.blogs")}
           </a>
-          <a href="#" className="px-4">
+          <a 
+            href="#contact" 
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("contact");
+            }}
+            className="px-4 transition-colors cursor-pointer"
+            style={{ 
+              color: theme === "dark" ? "#ffffff" : "#1f2937",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#fbbf24")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = theme === "dark" ? "#ffffff" : "#1f2937")}
+          >
             {t("common.contact")}
           </a>
         </div>
@@ -108,6 +176,7 @@ const Navbar = ({ theme, setTheme }: NavbarProps) => {
           <div
             className="cursor-pointer font-medium"
             onClick={handleLanguageChange}
+            style={{ color: theme === "dark" ? "#ffffff" : "#000000" }}
           >
             {lang.toUpperCase()}
           </div>
@@ -115,6 +184,7 @@ const Navbar = ({ theme, setTheme }: NavbarProps) => {
           <div
             className="cursor-pointer hover:scale-110 duration-200"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            style={{ color: theme === "dark" ? "#ffffff" : "#000000" }}
           >
             {theme === "light" ? <Moon /> : <Sun />}
           </div>
