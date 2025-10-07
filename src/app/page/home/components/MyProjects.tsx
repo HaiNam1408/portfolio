@@ -19,7 +19,7 @@ const projects: Project[] = [
   {
     title: "E-Commerce Platform",
     description: "A full-featured e-commerce platform with user authentication, product management, shopping cart, and payment integration using Stripe.",
-    image: "/public/images/dev.png",
+    image: "/images/dev.png",
     technologies: ["React", "Nodejs", "MongoDB", "TailwindCSS"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
@@ -28,7 +28,7 @@ const projects: Project[] = [
   {
     title: "Task Management App",
     description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    image: "/public/images/dev.png",
+    image: "/images/dev.png",
     technologies: ["Nextjs", "TypeScript", "PostgreSQL", "Nestjs"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
@@ -37,7 +37,7 @@ const projects: Project[] = [
   {
     title: "Social Media Dashboard",
     description: "Analytics dashboard for social media management with data visualization, scheduling posts, and performance tracking.",
-    image: "/public/images/dev.png",
+    image: "/images/dev.png",
     technologies: ["React", "Firebase", "TailwindCSS", "Redis"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
@@ -46,7 +46,7 @@ const projects: Project[] = [
   {
     title: "Weather Forecast App",
     description: "Real-time weather application with location-based forecasts, interactive maps, and weather alerts.",
-    image: "/public/images/dev.png",
+    image: "/images/dev.png",
     technologies: ["Flutter", "Firebase", "Python"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
