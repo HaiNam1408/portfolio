@@ -12,10 +12,17 @@
         "passionate": "Đam mê",
         "fullstack": "Lập trình viên Fullstack",
         "developer": "Lập trình viên",
-        "a": "Luôn"
+        "a": "Luôn",
+        "stats": {
+            "experience": "Năm Kinh Nghiệm",
+            "projects": "Dự Án Hoàn Thành",
+            "clients": "Khách Hàng Hài Lòng"
+        }
     },
     "whatIDo": {
         "title": "Tôi Làm Gì?",
+        "aboutMe": "Về Tôi",
+        "subtitle": "Khám phá những gì tôi có thể làm cho dự án của bạn",
         "qa1": {
             "question": "Bạn sử dụng công nghệ gì?",
             "answer": "Tôi làm việc với các công nghệ hiện đại bao gồm React, TypeScript, Node.js, Next.js, NestJS, TailwindCSS và nhiều hơn nữa. Tôi luôn học hỏi và thích nghi với công cụ mới."
@@ -32,6 +39,7 @@
     "projectsSection": {
         "title": "Dự Án Của Tôi",
         "subtitle": "Bộ sưu tập các dự án gần đây",
+        "badge": "Dự Án Gần Đây",
         "viewProject": "Xem Dự Án",
         "viewCode": "Xem Code",
         "demo": "Bản Demo"
@@ -39,6 +47,9 @@
     "contactSection": {
         "title": "Hãy Cùng Làm Việc",
         "subtitle": "Có dự án trong đầu? Hãy cùng tạo nên điều tuyệt vời!",
+        "badge": "Liên Hệ Ngay",
+        "formTitle": "Gửi Tin Nhắn",
+        "amazingText": "Hãy cùng tạo nên điều tuyệt vời! ✨",
         "name": "Tên của bạn",
         "email": "Email của bạn",
         "subject": "Tiêu đề",

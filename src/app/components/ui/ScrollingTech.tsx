@@ -9,7 +9,7 @@ const ScrollingTech: React.FC<ScrollingTechProps> = ({
   technologies,
   direction = "left",
 }) => {
-  const repeatedTechs = [...technologies, ...technologies, ...technologies];
+  const repeatedTechs = Array(7).fill(technologies).flat();
 
   return (
     <div className="relative overflow-x-hidden py-8">
@@ -42,34 +42,6 @@ const ScrollingTech: React.FC<ScrollingTechProps> = ({
           </div>
         ))}
       </div>
-
-      {/* CSS animation */}
-      <style>{`
-        @keyframes scroll-left {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-
-        @keyframes scroll-right {
-          from { transform: translateX(-50%); }
-          to { transform: translateX(0); }
-        }
-
-        .animate-scroll-left {
-          animation: scroll-left 60s linear infinite;
-        }
-
-        .animate-scroll-right {
-          animation: scroll-right 60s linear infinite;
-        }
-
-        @media (min-width: 768px) {
-          .animate-scroll-left,
-          .animate-scroll-right {
-            animation-duration: 50s;
-          }
-        }
-      `}</style>
     </div>
   );
 };

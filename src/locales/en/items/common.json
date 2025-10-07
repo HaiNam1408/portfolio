@@ -12,10 +12,17 @@
         "passionate": "Passionate",
         "fullstack": "Fullstack Developer",
         "developer": "Developer",
-        "a": "A"
+        "a": "A",
+        "stats": {
+            "experience": "Years Experience",
+            "projects": "Projects Done",
+            "clients": "Happy Clients"
+        }
     },
     "whatIDo": {
         "title": "What I Do?",
+        "aboutMe": "About Me",
+        "subtitle": "Discover what I can do for your project",
         "qa1": {
             "question": "What technologies do you use?",
             "answer": "I work with modern technologies including React, TypeScript, Node.js, Next.js, NestJS, TailwindCSS, and many more. I'm always learning and adapting to new tools."
@@ -32,6 +39,7 @@
     "projectsSection": {
         "title": "My Projects",
         "subtitle": "A collection of my recent work",
+        "badge": "My Recent Work",
         "viewProject": "View Project",
         "viewCode": "View Code",
         "demo": "Live Demo"
@@ -39,6 +47,9 @@
     "contactSection": {
         "title": "Let's Work Together",
         "subtitle": "Have a project in mind? Let's build something amazing together!",
+        "badge": "Get In Touch",
+        "formTitle": "Send a Message",
+        "amazingText": "Let's create something amazing together! ✨",
         "name": "Your Name",
         "email": "Your Email",
         "subject": "Subject",

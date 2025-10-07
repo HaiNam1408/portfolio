@@ -97,3 +97,39 @@ a:hover {
     transform: rotate(0deg);
   }
 }
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 100s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 100s linear infinite;
+}
+
+@media (min-width: 768px) {
+
+  .animate-scroll-left,
+  .animate-scroll-right {
+    animation-duration: 80s;
+  }
+}
