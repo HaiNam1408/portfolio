@@ -45,13 +45,13 @@ function Contact() {
     {
       name: "LinkedIn",
       icon: <Linkedin size={24} />,
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/namphh",
       color: "hover:text-blue-400",
     },
     {
       name: "Instagram",
       icon: <Instagram size={24} />,
-      url: "https://instagram.com",
+      url: "https://www.instagram.com/namphh_",
       color: "hover:text-pink-400",
     },
   ];

@@ -35,7 +35,7 @@ const projects: Project[] = [
   {
     title: "Games Market Website System",
     description: "A website system that allows conguration and management of many websites selling popular game accounts, allowing users to buy game accounts easily.",
-    image: "/images/dev.png",
+    image: "/images/game-market.png",
     technologies: ["Nestjs", "PostgreSQL", "Prisma", "CloudFlare R2"],
     liveUrl: "#",
     githubUrl: "https://github.com/HaiNam1408/sell-game-api",
@@ -43,7 +43,7 @@ const projects: Project[] = [
   {
     title: "Tatoo Mobile App",
     description: "A mobile app connects tattoo artists and their potential customers through posting their tattoo photos. Tattoo artists and customers can conveniently chat and book appointments.",
-    image: "/images/dev.png",
+    image: "/images/tattoo.png",
     technologies: ["Flutter", "Bloc", "Firebase", "SocketIO"],
     liveUrl: "#",
     githubUrl: "https://github.com/HaiNam1408/tatoo-app",
