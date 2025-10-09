@@ -8,13 +8,13 @@ function Introduce() {
   const { t } = useTranslation();
 
   const stats = [
-    { icon: <Code2 size={24} />, value: "3+", label: t("common.intro.stats.experience") },
-    { icon: <Rocket size={24} />, value: "20+", label: t("common.intro.stats.projects") },
-    { icon: <Sparkles size={24} />, value: "15+", label: t("common.intro.stats.clients") },
+    { icon: <Code2 size={24} />, value: "1+", label: t("common.intro.stats.experience") },
+    { icon: <Rocket size={24} />, value: "5+", label: t("common.intro.stats.projects") },
+    { icon: <Sparkles size={24} />, value: "5+", label: t("common.intro.stats.clients") },
   ];
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-8 min-h-[80vh] md:h-[100vh] w-full mt-8 px-20 py-8 md:py-0 relative">
+    <div className="flex flex-col md:flex-row items-center gap-8 min-h-[80vh] md:h-[100vh] w-full mt-8 px-6 lg:px-20 py-8 md:py-0 relative">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -z-10" />
@@ -127,6 +127,9 @@ function Introduce() {
           <AppButton
             title={t("common.intro.resume")}
             subtitle={t("common.intro.download")}
+            onClick={() => {
+              window.open('/files/CV_Software_Engineer.pdf', '_blank');
+            }}
           />
         </motion.div>
       </motion.div>
