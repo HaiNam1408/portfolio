@@ -7,7 +7,7 @@ function App() {
   const {theme, setTheme} = useTheme();
 
   return (
-    <div className="min-h-screen text-foreground transition-colors duration-300">
+    <div className="min-h-screen w-full text-foreground transition-colors duration-300 overflow-x-hidden">
       <Squares
         speed={0.2}
         squareSize={40}

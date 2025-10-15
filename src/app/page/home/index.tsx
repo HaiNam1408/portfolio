@@ -2,7 +2,7 @@ import type { Theme } from "../../../hooks";
 import Dock from "../../components/ui/Dock";
 import { Navbar } from "../../layout";
 import Introduce from "./components/Introduce";
-import { Activity, Archive, HomeIcon, Settings } from "lucide-react";
+import { HomeIcon, MessageSquare, Rocket, User2Icon } from "lucide-react";
 import WhatIDo from "./components/WhatIDo";
 import MyProjects from "./components/MyProjects";
 import Contact from "./components/Contact";
@@ -25,19 +25,19 @@ function Home(props: { theme: string; setTheme: (theme: Theme) => void }) {
       onClick: () => scrollToSection("home"),
     },
     {
-      icon: <Archive size={18} />,
+      icon: <User2Icon size={18} />,
+      label: "About",
+      onClick: () => scrollToSection("about"),
+    },
+    {
+      icon: <Rocket size={18} />,
       label: "Projects",
       onClick: () => scrollToSection("projects"),
     },
     {
-      icon: <Activity size={18} />,
+      icon: <MessageSquare size={18} />,
       label: "Contact",
       onClick: () => scrollToSection("contact"),
-    },
-    {
-      icon: <Settings size={18} />,
-      label: "Settings",
-      onClick: () => alert("Settings coming soon!"),
     },
   ];
 
@@ -48,23 +48,23 @@ function Home(props: { theme: string; setTheme: (theme: Theme) => void }) {
         <Navbar theme={theme} setTheme={setTheme} />
       </div>
       {/* Main */}
-      <main className="container mx-auto px-2 md:px-4 pt-20 md:pt-0 pb-8 md:pb-4 space-y-16 md:space-y-24">
-        <section id="home">
+      <main className="w-full px-4 md:px-8 lg:px-16 pt-20 md:pt-0 pb-24 md:pb-8 space-y-16 md:space-y-24 overflow-x-hidden">
+        <section id="home" className="w-full max-w-7xl mx-auto">
           <Introduce />
         </section>
-        <section id="about">
+        <section id="about" className="w-full max-w-7xl mx-auto">
           <WhatIDo />
         </section>
-        <section id="projects">
+        <section id="projects" className="w-full max-w-7xl mx-auto">
           <MyProjects />
         </section>
-        <section id="contact">
+        <section id="contact" className="w-full max-w-7xl mx-auto">
           <Contact />
         </section>
       </main>
 
       <Footer />
-      <div className="block md:hidden fixed bottom-1 left-1/2 -translate-x-1/2 z-50">
+      <div className="block md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 z-50 pb-2">
         <Dock
           items={items}
           panelHeight={58}

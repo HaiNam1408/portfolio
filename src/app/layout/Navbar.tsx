@@ -59,7 +59,7 @@ const Navbar = ({ theme, setTheme }: NavbarProps) => {
     };
   }, [deviceWidth]);
 
-  const navWidth = deviceWidth < 768 ? 100 : 80 - scrollProgress * 30;
+  const navWidth = deviceWidth < 1150 ? 80 : 80 - scrollProgress * 30;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
