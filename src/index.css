@@ -71,37 +71,28 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Custom animations */
-@keyframes wave {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  10%, 30% {
-    transform: rotate(14deg);
-  }
-  20% {
-    transform: rotate(-8deg);
-  }
-  40% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  }
+*::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+*::-webkit-scrollbar-track:hover {
+  background-color: #DFE9EB;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #DFE9EB;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #7C7C7C;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #7C7C7C;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #7C7C7C;
 }

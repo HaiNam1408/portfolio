@@ -7,15 +7,23 @@ import WhatIDo from "./components/WhatIDo";
 import MyProjects from "./components/MyProjects";
 import Contact from "./components/Contact";
 import Footer from "../../layout/Footer";
+import FloatButton from "../../components/ui/FloatButton";
+import ChatBox from "../../components/ui/ChatBox";
+import { useState } from "react";
 
 function Home(props: { theme: string; setTheme: (theme: Theme) => void }) {
   const { theme, setTheme } = props;
+  const [ isShowChatBox, setIsShowChatBox ] = useState(false);
   
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };
+
+  const toogleChatBox = () : void => {
+    setIsShowChatBox(!isShowChatBox);
   };
 
   const items = [
@@ -72,6 +80,8 @@ function Home(props: { theme: string; setTheme: (theme: Theme) => void }) {
           magnification={50}
         />
       </div>
+      { isShowChatBox && <ChatBox />}
+      <FloatButton onClick={toogleChatBox} />
     </>
   );
 }
