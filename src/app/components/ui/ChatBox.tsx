@@ -1,4 +1,4 @@
-import { BotIcon, XIcon, SendIcon } from "lucide-react";
+import { BotIcon, XIcon, SendIcon, Square } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useChatBot } from "../../../hooks";
 
@@ -8,26 +8,59 @@ type Message = {
   text: string;
 };
 
-export default function ChatBox() {
+type ChatBoxProps = {
+  toogleChatBox: () => void;
+};
+
+export default function ChatBox(props: ChatBoxProps) {
+  const { toogleChatBox } = props;
   const [text, setText] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [abortController, setAbortController] = useState<AbortController | null>(null);
   const { generateResponse } = useChatBot();
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
+    if(!text || isLoading) return;
+    setIsLoading(true);
     if (!text) return;
+    
+    const controller = new AbortController();
+    setAbortController(controller);
+    
     const newMessage: Message = { id: crypto.randomUUID(), type: "user", text };
     setMessages((prevMessages) => [...prevMessages, newMessage]);
+    const currentText = text;
     setText("");
-    generateResponse(text).then((response) => {
-      console.log(response);
-      const botResponse: Message = {
-        id: response.responseId ?? crypto.randomUUID(),
-        type: "bot",
-        text: response.text ?? "",
-      };
-      setMessages((prevMessages) => [...prevMessages, botResponse]);
-    });
+    
+    generateResponse(currentText)
+      .then((response) => {
+        if (controller.signal.aborted) {
+          return;
+        }
+        
+        const botResponse: Message = {
+          id: response.responseId ?? crypto.randomUUID(),
+          type: "bot",
+          text: response.text ?? "",
+        };
+        setIsLoading(false);
+        setMessages((prevMessages) => [...prevMessages, botResponse]);
+        setAbortController(null);
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setAbortController(null);
+      });
+  };
+
+  const handleSuspend = () => {
+    if (abortController) {
+      abortController.abort();
+      setAbortController(null);
+    }
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -50,7 +83,7 @@ export default function ChatBox() {
           <p className="font-bold">AI Assistant</p>
           <p className="text-[12px] text-gray-400">Built By Hainam.</p>
         </div>
-        <div className="">
+        <div onClick={toogleChatBox} className="cursor-pointer hover:bg-[#27272a] p-2 rounded transition-all duration-100">
           <XIcon size={20} className="text-black dark:text-white" />
         </div>
       </div>
@@ -83,6 +116,13 @@ export default function ChatBox() {
               </div>
             </div>
           ))}
+          {isLoading && (
+            <div className="flex justify-start">
+              <div className="max-w-[80%] rounded-b-xl px-4 py-2 bg-[#191920] text-[#f6f7ff] rounded-tr-xl">
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              </div>
+            </div>
+          )}
         </div>
       )}
       <form onSubmit={(e) => handleSend(e)} className="p-3">
@@ -90,20 +130,21 @@ export default function ChatBox() {
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
+          autoFocus
           className="w-full p-4 text-sm bg-black rounded-full border border-[#27272a]"
           placeholder="Ask me anything..."
         />
         <button
           type="submit"
           className={` ${
-            text ? "" : "opacity-50"
+            text || isLoading ? "" : "opacity-50"
           } absolute right-4 bottom-5 bg-black p-2 mr-2 rounded-full dark:bg-white cursor-pointer`}
         >
-          <SendIcon
+          {!isLoading ? <SendIcon
             size={20}
             onClick={(e) => handleSend(e)}
             className="text-white dark:text-black"
-          />
+          /> : <Square size={20} onClick={handleSuspend} className="text-white dark:text-black" />}
         </button>
       </form>
     </div>

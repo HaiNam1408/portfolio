@@ -11,6 +11,5 @@ const resources = {
 i18next.use(initReactI18next).init({
     lng: localStorage.getItem('i18nextLng') ? (localStorage.getItem('i18nextLng') as string) : 'en',
     fallbackLng: localStorage.getItem('i18nextLng') ? (localStorage.getItem('i18nextLng') as string) : 'en',
-    debug: true,
     resources
 })

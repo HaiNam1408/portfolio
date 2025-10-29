@@ -80,7 +80,7 @@ function Home(props: { theme: string; setTheme: (theme: Theme) => void }) {
           magnification={50}
         />
       </div>
-      { isShowChatBox && <ChatBox />}
+      { isShowChatBox && <ChatBox toogleChatBox={toogleChatBox} />}
       <FloatButton onClick={toogleChatBox} />
     </>
   );
