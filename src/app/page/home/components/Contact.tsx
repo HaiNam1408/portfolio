@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Mail, Send, Github, Linkedin, Instagram, MapPin, Phone, CheckCircle2, MessageSquare, Sparkles } from "lucide-react";
+import { Mail, Send, Github, Linkedin, Instagram, MapPin, Phone, CheckCircle2, MessageSquare, Sparkles, XCircle } from "lucide-react";
+import { useSendMail } from "../../../../hooks";
+import type { EmailData } from "../../../../types/types";
 
 function Contact() {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
+  const { sendMail, loading, error, success } = useSendMail();
+  const [formData, setFormData] = useState<EmailData>({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -23,16 +24,7 @@ function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      
-      setTimeout(() => setSubmitStatus(null), 3000);
-    }, 2000);
+    sendMail(formData);
   };
 
   const socialLinks = [
@@ -206,16 +198,16 @@ function Contact() {
 
               <motion.button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={loading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-base shadow-lg transition-all ${
-                  isSubmitting
+                  loading
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-gradient-to-r from-primary to-amber-400 text-black hover:shadow-xl hover:shadow-primary/30"
                 }`}
               >
-                {isSubmitting ? (
+                {loading ? (
                   <>
                     <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
                     {t("common.contactSection.sending")}
@@ -228,7 +220,7 @@ function Contact() {
                 )}
               </motion.button>
 
-              {submitStatus === "success" && (
+              {success && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -236,6 +228,16 @@ function Contact() {
                 >
                   <CheckCircle2 size={20} />
                   {t("common.contactSection.success")}
+                </motion.div>
+              )}
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-xl bg-red-500/10 border border-red-500/50 text-red-600 dark:text-red-400 text-center font-semibold flex items-center justify-center gap-2"
+                >
+                  <XCircle size={20} />
+                  {t("common.contactSection.error")}
                 </motion.div>
               )}
             </form>
