@@ -6,7 +6,7 @@ export default function FloatButton({ onClick }: { onClick: () => void }) {
     <motion.button
       whileTap={{ scale: 0.8 }}
       onClick={onClick}
-      className="fixed bottom-8 right-8 bg-black p-3 rounded-full cursor-pointer dark:bg-white"
+      className="z-50 fixed bottom-8 right-8 bg-black p-3 rounded-full cursor-pointer dark:bg-white"
     >
       <BotIcon size={30} className="text-white dark:text-black" />
     </motion.button>

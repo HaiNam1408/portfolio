@@ -289,11 +289,11 @@ function Contact() {
             <div className="relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-primary/10 dark:via-purple-500/10 dark:to-blue-500/10 border border-amber-200 dark:border-primary/20 shadow-lg">
               <div className="absolute top-0 right-0 w-40 h-40 bg-amber-300/30 dark:bg-primary/20 rounded-full blur-3xl" />
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
+                <h3 className="text-center text-2xl font-bold mb-4 text-gray-800 dark:text-white">
                   {t("common.contactSection.socialTitle")}
                 </h3>
                 <Mail className="my-5 mx-auto text-primary" size={80}/>
-                <p className="text-lg text-gray-700 dark:text-gray-400 mb-6">
+                <p className="text-lg text-center text-gray-700 dark:text-gray-400 mb-6">
                   {t("common.contactSection.amazingText")}
                 </p>
                 <div className="flex gap-4 justify-center">

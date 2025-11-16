@@ -1,0 +1,101 @@
+{
+    "personal_info": {
+        "name": "Phạm Hải Nam",
+        "age": 22,
+        "gender": "Male",
+        "date_of_birth": "14-08-2003",
+        "location": "Đà Nẵng, Việt Nam",
+        "email": "namphh.dev@gmail.com",
+        "portfolio": "https://phamhainam.qzz.io",
+        "github": "https://github.com/HaiNam1408",
+        "linkedin": "https://www.linkedin.com/in/namphh/",
+        "instagram": "https://www.instagram.com/namphh_/",
+        "resume_url": "https://phamhainam.qzz.io/files/CV_Software_Engineer.pdf",
+        "summary": "As a passionate Full Stack Developer, I'm committed to building scalable, maintainable web applications using modern technologies. I specialize in creating robust backend systems with Node.js/NestJS and intuitive frontend experiences with React/Next.js."
+    },
+    "education": {
+        "degree": "Bachelor of Engineering, Information Technology",
+        "college": "Dong A University",
+        "years": "2021 - 2025",
+        "additional_roles": [
+            "Software Engineer at Kozocom",
+            "Backend Developer at KDHM Solutions"
+        ]
+    },
+    "skills": {
+        "development": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "NestJS",
+            "React.js",
+            "Next.js",
+            "TypeScript",
+            "Node.js",
+            "MongoDB",
+            "Mongoose",
+            "Express",
+            "MySQL",
+            "PostgreSQL",
+            "Prisma",
+            "Git",
+            "Docker",
+            "Python",
+            "Laravel",
+            "TailwindCSS",
+            "Flutter",
+            "SocketIO",
+            "Redis"
+        ],
+        "tools_and_platforms": [
+            "Figma",
+            "GitHub",
+            "GitLab",
+            "Bitbucket",
+            "Backlog",
+            "Netlify",
+            "Vercel",
+            "Firebase",
+            "Cloudflare",
+            "Azure",
+            "Postman",
+            "JIRA"
+        ]
+    },
+    "honors_and_awards": [
+        {
+            "title": "The TOP 10 TEAM at UNIHACK 2023",
+            "description": "Reached the top 10 final teams at the Unihack2023 organized by Google Developer Group"
+        },
+        {
+            "title": "OVERSEAS TECHNICAL EDUCATION PROGRAM 2023",
+            "description": "Complete the Python programming course with Korean volunteers organized by KOREATECH"
+        }
+    ],
+    "experience": [
+        {
+            "title": "Software Engineer",
+            "company": "Kozocom Vietnam",
+            "link": "https://kozocom.vn/",
+            "period": "Mar 2025 — Present",
+            "description": [
+                "Responsible for contributing to various projects, collaborating closely with designers, developers, and project managers to deliver high-quality applications.",
+                "Developed and maintained web applications with Laravel and MySQL, building RESTful APIs for web and mobile clients",
+                "Optimized SQL queries and database schema, reducing execution time from ~60s to under 1s through indexing and query refactoring.",
+                "Collaborated with team members daily to ensure seamless integration and project success."
+            ]
+        },
+        {
+            "title": "Backend Developer",
+            "company": "KDHM Solutions",
+            "period": "Jun 2024 - Mar 2025",
+            "description": [
+                "Responsible for developing and maintaining backend systems, working closely with cross-functional teams to deliver scalable and efcient solutions.",
+                "Built and optimized backend services using NestJS, TypeScript and PostgreSQL.",
+                "Collaborated on system analysis and development, contributing to the design of effective architectures",
+                "Worked with front-end developers to ensure seamless data ow and user experience.",
+                "Assisted in debugging and resolving technical issues, improving system performance and reliability."
+            ]
+        }
+    ]
+}
