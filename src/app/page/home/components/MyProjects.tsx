@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Rocket, Star, TrendingUp } from "lucide-react";
-
+import * as data from "../../../../assets/data.json";
 interface Project {
   title: string;
   description: string;
@@ -15,40 +15,7 @@ interface Project {
   };
 }
 
-const projects: Project[] = [
-  {
-    title: "Smart AI Translate Website",
-    description: "TranslateAI is an advanced translation app built with Next.js that leverages Gemini API for high-quality, context-aware language translations.",
-    image: "/images/smart-ai-translate.png",
-    technologies: ["Nextjs", "GeminiAPI", "Zustand", "TailwindCSS"],
-    liveUrl: "https://smart-ai-translate.netlify.app",
-    githubUrl: "https://github.com/HaiNam1408/translate-ai",
-  },
-  {
-    title: "Interior Online Store Website",
-    description: "An e-commerce website selling luxury furniture. The system is built using Nestjs combining Prisma for API and React and Nestjs for user interface and admin interface.",
-    image: "/images/interlux.png",
-    technologies: ["Nestjs", "Reactjs", "Nextjs", "PostgreSQL", "Prisma"],
-    liveUrl: "https://interlux.netlify.app",
-    githubUrl: "https://github.com/HaiNam1408/interlux-be",
-  },
-  {
-    title: "Games Market Website System",
-    description: "A website system that allows conguration and management of many websites selling popular game accounts, allowing users to buy game accounts easily.",
-    image: "/images/game-market.png",
-    technologies: ["Nestjs", "PostgreSQL", "Prisma", "CloudFlare R2"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/HaiNam1408/sell-game-api",
-  },
-  {
-    title: "Tatoo Mobile App",
-    description: "A mobile app connects tattoo artists and their potential customers through posting their tattoo photos. Tattoo artists and customers can conveniently chat and book appointments.",
-    image: "/images/tattoo.png",
-    technologies: ["Flutter", "Bloc", "Firebase", "SocketIO"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/HaiNam1408/tatoo-app",
-  },
-];
+const projects: Project[] = data.projects
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (

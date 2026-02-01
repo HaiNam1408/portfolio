@@ -62,6 +62,84 @@
             "JIRA"
         ]
     },
+    "projects": [
+        {
+            "title": "Gomi Tokyo – Digital waste management contract platform",
+            "description": "SaaS solutions help businesses automate and simplify the process of signing complex contracts with industrial waste collectors. Convert all cumbersome paperwork to a fast and legally compliant online process",
+            "image": "/images/gomi.tokyo.jp.png",
+            "technologies": [
+                "PHP",
+                "Laravel",
+                "MySQL",
+                "HTML/CSS"
+            ],
+            "liveUrl": "https://gomi.tokyo.jp"
+        },
+        {
+            "title": "Kimono Rental Aki – Kimono Rental Platform",
+            "description": "E-commerce website and service booking for a large chain of Kimono stores in Tokyo and Yokohama. Optimized customer experience with a catalog of over 5,000 products, multi-language support (Japanese, English, Chinese) to serve both domestic customers and international tourists",
+            "image": "/images/kr-aki.co.jp.png",
+            "technologies": [
+                "PHP",
+                "Eccube",
+                "WordPress",
+                "MySQL",
+                "Bootstrap"
+            ],
+            "liveUrl": "https://kr-aki.co.jp"
+        },
+        {
+            "title": "Smart AI Translate Website",
+            "description": "TranslateAI is an advanced translation app built with Next.js that leverages Gemini API for high-quality, context-aware language translations.",
+            "image": "/images/smart-ai-translate.png",
+            "technologies": [
+                "Nextjs",
+                "GeminiAPI",
+                "Zustand",
+                "TailwindCSS"
+            ],
+            "liveUrl": "https://smart-ai-translate.netlify.app",
+            "githubUrl": "https://github.com/HaiNam1408/translate-ai"
+        },
+        {
+            "title": "Interior Online Store Website",
+            "description": "An e-commerce website selling luxury furniture. The system is built using Nestjs combining Prisma for API and React and Nestjs for user interface and admin interface.",
+            "image": "/images/interlux.png",
+            "technologies": [
+                "Nestjs",
+                "Reactjs",
+                "Nextjs",
+                "PostgreSQL",
+                "Prisma"
+            ],
+            "liveUrl": "https://interlux.netlify.app",
+            "githubUrl": "https://github.com/HaiNam1408/interlux-be"
+        },
+        {
+            "title": "Games Market Website System",
+            "description": "A website system that allows conguration and management of many websites selling popular game accounts, allowing users to buy game accounts easily.",
+            "image": "/images/game-market.png",
+            "technologies": [
+                "Nestjs",
+                "PostgreSQL",
+                "Prisma",
+                "CloudFlare R2"
+            ],
+            "githubUrl": "https://github.com/HaiNam1408/sell-game-api"
+        },
+        {
+            "title": "Tatoo Mobile App",
+            "description": "A mobile app connects tattoo artists and their potential customers through posting their tattoo photos. Tattoo artists and customers can conveniently chat and book appointments.",
+            "image": "/images/tattoo.png",
+            "technologies": [
+                "Flutter",
+                "Bloc",
+                "Firebase",
+                "SocketIO"
+            ],
+            "githubUrl": "https://github.com/HaiNam1408/tatoo-app"
+        }
+    ],
     "honors_and_awards": [
         {
             "title": "The TOP 10 TEAM at UNIHACK 2023",
