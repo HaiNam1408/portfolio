@@ -2,7 +2,7 @@ import { Github, Instagram, Linkedin } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="w-full py-6 px-4 mt-10 border-t border-black/50 dark:border-white/50">
+    <footer className="w-full mb-[64px] md:mb-0 py-6 px-4 mt-10 border-t border-black/50 dark:border-white/50">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="text-sm">
           © {new Date().getFullYear()} Phạm Hải Nam. All rights reserved.

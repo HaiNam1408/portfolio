@@ -87,7 +87,7 @@ export default function WhatIDo() {
   ];
 
   return (
-    <section className="py-12 md:py-20 px-4 relative">
+    <section className="py-0 md:py-20 md:px-4 relative">
       {/* Decorative background */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl -z-10" />
@@ -100,7 +100,7 @@ export default function WhatIDo() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-3"
+            className="space-y-3 flex flex-col items-center md:items-start"
           >
             <span className="px-4 py-2 rounded-full bg-amber-100 dark:bg-primary/10 border border-amber-300 dark:border-primary/30 text-amber-800 dark:text-primary font-semibold text-sm flex items-center gap-2 w-fit">
               <User size={16} />

@@ -186,7 +186,7 @@ const Navbar = ({ theme, setTheme }: NavbarProps) => {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             style={{ color: theme === "dark" ? "#ffffff" : "#000000" }}
           >
-            {theme === "light" ? <Moon /> : <Sun />}
+            {theme === "light" ? <Sun /> : <Moon />}
           </div>
         </div>
       </div>

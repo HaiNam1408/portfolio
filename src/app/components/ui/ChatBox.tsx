@@ -88,13 +88,14 @@ export default function ChatBox(props: ChatBoxProps) {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 20, scale: 0.95 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className="z-50 flex flex-col fixed bottom-20 sm:bottom-24 right-2 sm:right-4 md:right-8 
-                 h-[80vh] sm:h-[75vh] md:h-[70%] 
-                 w-[calc(100vw-1rem)] sm:w-[90vw] md:w-[500px] lg:w-[550px]
-                 max-w-[600px] bg-black rounded-xl border border-[#27272a] shadow-2xl"
+      className="z-50 flex flex-col fixed 
+                 bottom-0 sm:bottom-24 right-0 sm:right-4 md:right-8 
+                 h-screen sm:h-[75vh] md:h-[70%] 
+                 w-full sm:w-[90vw] md:w-[500px] lg:w-[550px]
+                 max-w-full sm:max-w-[600px] bg-black sm:rounded-xl border-0 sm:border border-[#27272a] shadow-2xl"
     >
       {/* Header */}
-      <div className="flex items-center py-3 px-3 sm:px-4 border-b border-[#27272a] bg-black/50 backdrop-blur-sm rounded-t-xl">
+      <div className="flex items-center py-3 px-3 sm:px-4 border-b border-[#27272a] bg-black/50 backdrop-blur-sm sm:rounded-t-xl">
         <motion.div
           initial={{ rotate: 0 }}
           animate={{ rotate: [0, 10, -10, 0] }}
@@ -221,7 +222,7 @@ export default function ChatBox(props: ChatBoxProps) {
       )}
 
       {/* Input Area */}
-      <form onSubmit={handleSend} className="p-2 sm:p-3 border-t border-[#27272a] bg-black/50 backdrop-blur-sm rounded-b-xl">
+      <form onSubmit={handleSend} className="p-2 sm:p-3 border-t border-[#27272a] bg-black/50 backdrop-blur-sm sm:rounded-b-xl">
         <div className="relative">
           <input
             ref={inputRef}

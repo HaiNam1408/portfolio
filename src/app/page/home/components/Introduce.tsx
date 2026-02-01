@@ -14,7 +14,7 @@ function Introduce() {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-8 min-h-[80vh] md:h-[100vh] w-full mt-8 px-6 lg:px-20 py-8 md:py-0 relative">
+    <div className="flex flex-col md:flex-row items-center gap-8 min-h-[80vh] md:h-[100vh] w-full mt-8 md:px-6 lg:px-20 py-8 md:py-0 relative">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -z-10" />
@@ -54,7 +54,7 @@ function Introduce() {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="w-full md:w-2/3 flex flex-col text-left space-y-6"
+        className="w-full md:w-2/3 flex flex-col text-left space-y-6 items-center md:items-start"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,7 +92,7 @@ function Introduce() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-2xl"
+          className="text-sm sm:text-base text-center md:text-left md:text-lg text-gray-700 dark:text-gray-300 max-w-2xl"
         >
           {t("common.intro.introduce")}
         </motion.p>
@@ -102,7 +102,7 @@ function Introduce() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="flex flex-wrap gap-6 py-4"
+          className="hidden md:flex flex-wrap gap-6 py-4 justify-center md:justify-start"
         >
           {stats.map((stat, index) => (
             <div 

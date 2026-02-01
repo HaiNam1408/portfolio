@@ -1,206 +1,102 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  motion,
-  MotionValue,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  type SpringOptions,
-  AnimatePresence,
-} from "framer-motion";
-import React, {
-  Children,
-  cloneElement,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useMotionValue } from "framer-motion";
+import React, { Children, cloneElement } from "react";
 
 export type DockItemData = {
   icon: React.ReactNode;
   label: React.ReactNode;
   onClick: () => void;
   className?: string;
+  isActive?: boolean;
 };
 
 export type DockProps = {
   items: DockItemData[];
   className?: string;
-  distance?: number;
-  panelHeight?: number;
-  baseItemSize?: number;
-  dockHeight?: number;
-  magnification?: number;
-  spring?: SpringOptions;
+  height?: number;
+  space?: number;
 };
 
 type DockItemProps = {
   className?: string;
   children: React.ReactNode;
   onClick?: () => void;
-  mouseX: MotionValue;
-  spring: SpringOptions;
-  distance: number;
-  baseItemSize: number;
-  magnification: number;
+  isActive?: boolean;
 };
 
-function DockItem({
-  children,
-  className = "",
-  onClick,
-  mouseX,
-  spring,
-  distance,
-  magnification,
-  baseItemSize,
-}: DockItemProps) {
-  const ref = useRef<HTMLDivElement>(null);
+function DockItem({ children, className = "", onClick, isActive = false }: DockItemProps) {
   const isHovered = useMotionValue(0);
 
-  const mouseDistance = useTransform(mouseX, (val) => {
-    const rect = ref.current?.getBoundingClientRect() ?? {
-      x: 0,
-      width: baseItemSize,
-    };
-    return val - rect.x - baseItemSize / 2;
-  });
-
-  const targetSize = useTransform(
-    mouseDistance,
-    [-distance, 0, distance],
-    [baseItemSize, magnification, baseItemSize]
-  );
-  const size = useSpring(targetSize, spring);
-
   return (
-    <motion.div
-      ref={ref}
-      style={{
-        width: size,
-        height: size,
-      }}
-      onHoverStart={() => isHovered.set(1)}
-      onHoverEnd={() => isHovered.set(0)}
+    <div
+      onMouseEnter={() => isHovered.set(1)}
+      onMouseLeave={() => isHovered.set(0)}
       onFocus={() => isHovered.set(1)}
       onBlur={() => isHovered.set(0)}
       onClick={onClick}
-      className={`relative inline-flex items-center justify-center rounded-xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg border-2 border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl hover:border-primary/50 dark:hover:border-primary/50 transition-all ${className}`}
+      className={`inline-flex flex-col items-center justify-center gap-1 cursor-pointer ${className}`}
       tabIndex={0}
       role="button"
       aria-haspopup="true"
     >
       {Children.map(children, (child) =>
-        cloneElement(child as React.ReactElement<any>, { isHovered })
+        cloneElement(child as React.ReactElement<any>, { isHovered, isActive })
       )}
-    </motion.div>
+    </div>
   );
 }
 
 type DockLabelProps = {
   className?: string;
   children: React.ReactNode;
+  isActive?: boolean;
 };
 
 function DockLabel({ children, className = "", ...rest }: DockLabelProps) {
-  const { isHovered } = rest as { isHovered: MotionValue<number> };
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = isHovered.on("change", (latest) => {
-      setIsVisible(latest === 1);
-    });
-    return () => unsubscribe();
-  }, [isHovered]);
-
+  const { isActive } = rest as { isActive?: boolean };
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: -10 }}
-          exit={{ opacity: 0, y: 0 }}
-          transition={{ duration: 0.2 }}
-          className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border border-neutral-700 bg-[#060010] px-2 py-0.5 text-xs text-white`}
-          role="tooltip"
-          style={{ x: "-50%" }}
-        >
-          {children}
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div className={`${className} text-[14px] font-medium whitespace-nowrap transition-colors duration-200 ${
+      isActive ? 'text-blue-500 dark:text-blue-400 font-semibold' : 'text-gray-700 dark:text-gray-300'
+    }`}>
+      {children}
+    </div>
   );
 }
 
 type DockIconProps = {
   className?: string;
   children: React.ReactNode;
+  isActive?: boolean;
 };
 
-function DockIcon({ children, className = "" }: DockIconProps) {
+function DockIcon({ children, className = "", ...rest }: DockIconProps) {
+  const { isActive } = rest as { isActive?: boolean };
+
   return (
-    <div className={`flex items-center justify-center ${className}`}>
+    <div className={`flex items-center justify-center transition-colors duration-200 ${
+      isActive ? 'text-blue-500 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'
+    } ${className}`}>
       {children}
     </div>
   );
 }
 
-export default function Dock({
-  items,
-  className = "",
-  spring = { mass: 0.1, stiffness: 150, damping: 12 },
-  magnification = 70,
-  distance = 200,
-  panelHeight = 64,
-  dockHeight = 256,
-  baseItemSize = 50,
-}: DockProps) {
-  const mouseX = useMotionValue(Infinity);
-  const isHovered = useMotionValue(0);
-
-  const maxHeight = useMemo(
-    () => Math.max(dockHeight, magnification + magnification / 2 + 4),
-    [magnification, dockHeight]
-  );
-  const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
-  const height = useSpring(heightRow, spring);
-
+export default function Dock({ items, className = "", height = 64, space = 4 }: DockProps) {
   return (
-    <motion.div
-      style={{ height, scrollbarWidth: "none" }}
-      className="mx-2 flex max-w-full items-center"
-    >
-      <motion.div
-        onMouseMove={({ pageX }) => {
-          isHovered.set(1);
-          mouseX.set(pageX);
-        }}
-        onMouseLeave={() => {
-          isHovered.set(0);
-          mouseX.set(Infinity);
-        }}
-        className={`${className} absolute bottom-2 transform -translate-x-1/2 flex items-end w-fit gap-3 rounded-2xl bg-white/80 dark:bg-[#161616] border-2 border-gray-200 dark:border-gray-700 shadow-2xl pb-2 px-4`}
-        style={{ height: panelHeight }}
+    <div className="fixed bottom-0 left-0 right-0 flex items-center justify-center bg-white">
+      <div
+        className={`${className} w-full flex items-end justify-center gap-${space} bg-white/80 dark:bg-[#161616] border-t-2 border-gray-200 dark:border-gray-700 shadow-2xl pb-2 px-4`}
+        style={{ height: `${height}px` }}
         role="toolbar"
         aria-label="Application dock"
       >
         {items.map((item, index) => (
-          <DockItem
-            key={index}
-            onClick={item.onClick}
-            className={item.className}
-            mouseX={mouseX}
-            spring={spring}
-            distance={distance}
-            magnification={magnification}
-            baseItemSize={baseItemSize}
-          >
+          <DockItem key={index} onClick={item.onClick} className={item.className} isActive={item.isActive}>
             <DockIcon>{item.icon}</DockIcon>
             <DockLabel>{item.label}</DockLabel>
           </DockItem>
         ))}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
