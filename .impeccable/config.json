@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "theme('fontfamily.sans')",
+        "createdAt": "2026-11-19T17:44:42.859Z",
+        "reason": "agent: Tailwind theme() call resolving to Be Vietnam Pro, documented in DESIGN.md"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "theme('fontfamily.mono')",
+        "createdAt": "2026-11-19T17:44:42.870Z",
+        "reason": "agent: Tailwind theme() call resolving to JetBrains Mono, documented in DESIGN.md"
+      }
+    ]
+  }
+}

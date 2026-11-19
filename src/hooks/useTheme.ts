@@ -2,23 +2,30 @@ import { useEffect, useState } from 'react';
 
 export type Theme = 'light' | 'dark';
 
+function readStoredTheme(): Theme {
+    try {
+        const fromUrl = new URLSearchParams(window.location.search).get('theme');
+        if (fromUrl === 'dark' || fromUrl === 'light') return fromUrl;
+        return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+    } catch {
+        return 'light';
+    }
+}
+
 export function useTheme() {
-    const [theme, setTheme] = useState<Theme>(() => {
-        return (localStorage.getItem('theme') as Theme) || 'dark';
-    });
+    const [theme, setTheme] = useState<Theme>(readStoredTheme);
 
     useEffect(() => {
-        const root = window.document.documentElement;
-        if (theme === 'dark') {
-            root.classList.add('dark');
-        } else {
-            root.classList.remove('dark');
-        }
+        document.documentElement.classList.toggle('dark', theme === 'dark');
     }, [theme]);
 
     const changeTheme = (newTheme: Theme) => {
         setTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
+        try {
+            localStorage.setItem('theme', newTheme);
+        } catch {
+            /* storage unavailable: theme still applies for this visit */
+        }
     };
 
     return { theme, setTheme: changeTheme };

@@ -1,127 +1,83 @@
+import { useEffect, useState } from "react";
+import { MotionConfig } from "framer-motion";
 import type { Theme } from "../../../hooks";
-import Dock from "../../components/ui/Dock";
 import { Navbar } from "../../layout";
+import Footer from "../../layout/Footer";
 import Introduce from "./components/Introduce";
-import { HomeIcon, MessageSquare, Rocket, User2Icon } from "lucide-react";
-import WhatIDo from "./components/WhatIDo";
+import Experience from "./components/Experience";
+import Skills from "./components/Skills";
+import Statement from "./components/Statement";
+import { useTranslation } from "react-i18next";
 import MyProjects from "./components/MyProjects";
 import Contact from "./components/Contact";
-import Footer from "../../layout/Footer";
 import FloatButton from "../../components/ui/FloatButton";
 import ChatBox from "../../components/ui/ChatBox";
-import { useState, useEffect } from "react";
+import { WaveField } from "../../components/passport";
+import { ScrollProgress } from "../../components/motion";
 
-function Home(props: { theme: string; setTheme: (theme: Theme) => void }) {
-  const { theme, setTheme } = props;
-  const [ isShowChatBox, setIsShowChatBox ] = useState(false);
-  const [ activeSection, setActiveSection ] = useState("home");
-  
+const SECTIONS = ["home", "experience", "projects", "skills", "contact"];
+
+function Home({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme) => void }) {
+  const { t } = useTranslation();
+  const [isShowChatBox, setIsShowChatBox] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-50% 0px -50% 0px",
-      threshold: 0
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const sections = ["home", "about", "projects", "contact"];
-    sections.forEach((sectionId) => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        observer.observe(element);
-      }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
-
-    return () => {
-      sections.forEach((sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
-    };
+    return () => observer.disconnect();
   }, []);
-  
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
-  const toogleChatBox = () : void => {
-    setIsShowChatBox(!isShowChatBox);
-  };
-
-  const items = [
-    {
-      icon: <HomeIcon size={18} />,
-      label: "Home",
-      onClick: () => scrollToSection("home"),
-      isActive: activeSection === "home",
-    },
-    {
-      icon: <User2Icon size={18} />,
-      label: "About",
-      onClick: () => scrollToSection("about"),
-      isActive: activeSection === "about",
-    },
-    {
-      icon: <Rocket size={18} />,
-      label: "Projects",
-      onClick: () => scrollToSection("projects"),
-      isActive: activeSection === "projects",
-    },
-    {
-      icon: <MessageSquare size={18} />,
-      label: "Contact",
-      onClick: () => scrollToSection("contact"),
-      isActive: activeSection === "contact",
-    },
-  ];
+  const toggleChatBox = () => setIsShowChatBox((v) => !v);
 
   return (
-    <>
-      {/* Navbar */}
-      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
-        <Navbar theme={theme} setTheme={setTheme} />
-      </div>
-      {/* Main */}
-      <main className="w-full px-4 md:px-8 lg:px-16 pt-8 md:pt-0 md:pb-8 space-y-16 md:space-y-24 overflow-x-hidden">
-        <section id="home" className="w-full max-w-7xl mx-auto">
-          <Introduce />
-        </section>
-        <section id="about" className="w-full max-w-7xl mx-auto">
-          <WhatIDo />
-        </section>
-        <section id="projects" className="w-full max-w-7xl mx-auto">
-          <MyProjects />
-        </section>
-        <section id="contact" className="w-full max-w-7xl mx-auto">
-          <Contact />
-        </section>
-      </main>
+    <MotionConfig reducedMotion="user">
+      <a href="#main" className="skip-link">
+        {t("common.passport.skip")}
+      </a>
 
-      <Footer />
-      <div className="block w-full md:hidden fixed bottom-0 z-50 pb-2">
-        <Dock
-          items={items}
-          height={64}
-          space={12}
-        />
+      <WaveField className="pointer-events-none fixed inset-0 -z-10 h-full w-full opacity-[0.22] dark:opacity-[0.08]" density={52} />
+
+      <ScrollProgress className="lg:left-[96px] max-lg:top-14" />
+      <Navbar theme={theme} setTheme={setTheme} activeSection={activeSection} onChat={toggleChatBox} />
+
+      <div className="pt-14 lg:pl-[96px] lg:pt-0">
+        <main id="main" tabIndex={-1} className="mx-auto max-w-[1240px] px-5 outline-none md:px-10">
+          <section id="home">
+            <Introduce />
+          </section>
+          <section aria-label={t("common.passport.statementLabel")} className="border-t border-rule/15">
+            <Statement />
+          </section>
+          <section id="experience" className="border-t border-rule/15">
+            <Experience />
+          </section>
+          <section id="projects" className="border-t border-rule/15">
+            <MyProjects />
+          </section>
+          <section id="skills" className="border-t border-rule/15">
+            <Skills />
+          </section>
+          <section id="contact" className="border-t border-rule/15">
+            <Contact />
+          </section>
+        </main>
+        <Footer />
       </div>
-      { isShowChatBox && <ChatBox toogleChatBox={toogleChatBox} />}
-      <FloatButton onClick={toogleChatBox} className={isShowChatBox ? "hidden sm:block" : ""} />
-    </>
+
+      {isShowChatBox && <ChatBox toogleChatBox={toggleChatBox} />}
+      <FloatButton onClick={toggleChatBox} open={isShowChatBox} className="!hidden md:!flex" />
+    </MotionConfig>
   );
 }
 

@@ -60,5 +60,92 @@
         "error": "Gửi thất bại. Vui lòng thử lại.",
         "or": "Hoặc liên hệ qua",
         "socialTitle": "Kết nối với tôi"
+    },
+    "passport": {
+        "nav": {
+            "home": "Trang dữ liệu",
+            "experience": "Kinh nghiệm",
+            "projects": "Dự án",
+            "skills": "Kỹ năng",
+            "contact": "Liên hệ",
+            "menu": "Các mục"
+        },
+        "experience": {
+            "title": "Kinh nghiệm",
+            "subtitle": "Hệ thống backend và AI đã đưa vào sản phẩm doanh nghiệp, SaaS và marketplace.",
+            "result": "Kết quả chính",
+            "stack": "Công nghệ"
+        },
+        "credentials": {
+            "title": "Kỹ năng & Học vấn",
+            "subtitle": "Công cụ mình dùng hằng ngày, và nền tảng phía sau.",
+            "skills": "Kỹ năng",
+            "education": "Học vấn",
+            "gpa": "GPA"
+        },
+        "chat": {
+            "title": "Trợ lý AI",
+            "by": "Xây dựng bởi Hainam.",
+            "empty": "Chào bạn! Mình là trợ lý của Nam. Hãy hỏi về kinh nghiệm, dự án AI, kỹ năng hoặc cách liên hệ với Nam.",
+            "placeholder": "Hỏi mình bất cứ điều gì...",
+            "label": "Hỏi trợ lý",
+            "open": "Hỏi trợ lý AI về Nam",
+            "close": "Đóng trợ lý AI",
+            "send": "Gửi tin nhắn",
+            "stop": "Dừng trả lời",
+            "typing": "Trợ lý đang trả lời",
+            "error": "Xin lỗi, trợ lý tạm thời không phản hồi được. Bạn có thể liên hệ trực tiếp với Nam qua form liên hệ bên dưới."
+        },
+        "document": "Hộ chiếu · Passport",
+        "type": "Loại",
+        "code": "Mã",
+        "number": "Số",
+        "surname": "Họ",
+        "given": "Tên",
+        "nationality": "Quốc tịch",
+        "nationalityValue": "Việt Nam",
+        "base": "Nơi ở",
+        "baseValue": "Đà Nẵng, Việt Nam",
+        "occupation": "Nghề nghiệp",
+        "employer": "Nơi làm việc",
+        "status": "Trạng thái",
+        "statusValue": "Sẵn sàng nhận việc",
+        "contactCta": "Liên hệ",
+        "photoAlt": "Ảnh chân dung Phạm Hải Nam",
+        "themeLight": "Chuyển sang trang sáng",
+        "themeDark": "Chuyển sang bìa tối",
+        "language": "Chuyển ngôn ngữ sang tiếng Anh",
+        "perf": {
+            "label": "Thời gian thực thi truy vấn, database production tại Kozocom",
+            "before": "~60 s",
+            "after": "< 1 s",
+            "note": "Đánh index và tái cấu trúc truy vấn trên Laravel + MySQL."
+        },
+        "stack": "Công nghệ",
+        "groups": {
+            "backend": "Backend",
+            "data": "Dữ liệu",
+            "frontend": "Frontend",
+            "mobile": "Mobile & công cụ"
+        },
+        "entry": "Nhập cảnh",
+        "visa": "Thị thực",
+        "visaType": "Loại",
+        "typeWeb": "Nền tảng web",
+        "typeMobile": "Ứng dụng di động",
+        "visaStack": "Công nghệ",
+        "openProject": "Mở {{title}}",
+        "received": "Đã nhận",
+        "email": "Email",
+        "phone": "Điện thoại",
+        "location": "Địa điểm",
+        "rights": "Bảo lưu mọi quyền.",
+        "skip": "Bỏ qua đến nội dung",
+        "statementLabel": "Kết quả nổi bật",
+        "errors": {
+            "required": "Vui lòng điền trường này.",
+            "email": "Nhập email hợp lệ, ví dụ ten@congty.com.",
+            "message": "Bạn viết thêm một chút nhé (tối thiểu 10 ký tự)."
+        }
     }
 }

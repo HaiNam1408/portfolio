@@ -1,0 +1,942 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T17:48:04.531840Z",
+  "title": "Design System: Hainam. Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "burgundy": {
+        "role": "primary",
+        "displayName": "Cover Burgundy",
+        "canonical": "--burgundy on :root (RGB channels), oklch(36.4% 0.108 13.5)",
+        "tonalRamp": [
+          "#110809",
+          "#3A1D20",
+          "#683239",
+          "#9A4954",
+          "#BD6F77",
+          "#D59DA1",
+          "#E9C7CA",
+          "#F9EAEB"
+        ]
+      },
+      "burgundy-deep": {
+        "role": "primary",
+        "displayName": "Cover Burgundy Deep",
+        "canonical": "--burgundy-deep on :root (RGB channels), oklch(28.3% 0.083 10.1)",
+        "tonalRamp": [
+          "#10090A",
+          "#361F22",
+          "#61373D",
+          "#8F515B",
+          "#B2767E",
+          "#CCA1A6",
+          "#E3CACC",
+          "#F7EBEC"
+        ]
+      },
+      "on-burgundy": {
+        "role": "secondary",
+        "displayName": "Gold Thread",
+        "canonical": "--on-burgundy on :root (RGB channels), oklch(87.2% 0.082 87.2)",
+        "tonalRamp": [
+          "#0D0B06",
+          "#2E2511",
+          "#53431C",
+          "#7A6328",
+          "#9D8652",
+          "#BCAC89",
+          "#D9D0BC",
+          "#F2EEE5"
+        ]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Pressed Gold",
+        "canonical": "--gold on :root (RGB channels), oklch(63.3% 0.106 84.3)",
+        "tonalRamp": [
+          "#0E0B04",
+          "#312409",
+          "#584105",
+          "#826000",
+          "#A5843C",
+          "#C2AB7E",
+          "#DDD0B6",
+          "#F3EEE3"
+        ]
+      },
+      "stamp-red": {
+        "role": "tertiary",
+        "displayName": "Entry Red",
+        "canonical": "--stamp-red on :root (RGB channels), oklch(52.2% 0.153 17.4)",
+        "tonalRamp": [
+          "#140708",
+          "#41171A",
+          "#75262E",
+          "#AC3645",
+          "#D06169",
+          "#E49598",
+          "#F2C4C4",
+          "#FEE9E9"
+        ]
+      },
+      "stamp-navy": {
+        "role": "tertiary",
+        "displayName": "Consular Navy",
+        "canonical": "--stamp-navy on :root (RGB channels), oklch(30.0% 0.081 269.6)",
+        "tonalRamp": [
+          "#090B10",
+          "#202637",
+          "#384365",
+          "#546495",
+          "#7787B7",
+          "#A1ADCF",
+          "#C9D1E4",
+          "#EBEEF7"
+        ]
+      },
+      "stamp-green": {
+        "role": "tertiary",
+        "displayName": "Customs Green",
+        "canonical": "--stamp-green on :root (RGB channels), oklch(45.0% 0.079 153.2)",
+        "tonalRamp": [
+          "#080D09",
+          "#192B1F",
+          "#2B4E36",
+          "#3F7350",
+          "#669674",
+          "#97B89F",
+          "#C4D7C9",
+          "#E9F1EB"
+        ]
+      },
+      "stamp-plum": {
+        "role": "tertiary",
+        "displayName": "Seal Plum",
+        "canonical": "--stamp-plum on :root (RGB channels), oklch(44.5% 0.098 347.4)",
+        "tonalRamp": [
+          "#10090C",
+          "#351E2A",
+          "#60344C",
+          "#8E4D71",
+          "#B27293",
+          "#CC9FB5",
+          "#E3C8D5",
+          "#F7EBF0"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Security Ivory",
+        "canonical": "--paper on :root (RGB channels), oklch(94.8% 0.016 82.8)",
+        "tonalRamp": [
+          "#0C0B0A",
+          "#282623",
+          "#48453E",
+          "#6B655C",
+          "#8E887F",
+          "#B1ADA7",
+          "#D3D1CD",
+          "#EFEEED"
+        ]
+      },
+      "paper-raised": {
+        "role": "neutral",
+        "displayName": "Laid Paper",
+        "canonical": "--paper-raised on :root (RGB channels), oklch(97.1% 0.010 81.8)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#272624",
+          "#474541",
+          "#696660",
+          "#8C8983",
+          "#B0AEA9",
+          "#D2D1CE",
+          "#EFEEED"
+        ]
+      },
+      "rose": {
+        "role": "neutral",
+        "displayName": "Rose Page",
+        "canonical": "--rose on :root (RGB channels), oklch(91.8% 0.021 24.8)",
+        "tonalRamp": [
+          "#0C0B0A",
+          "#2B2524",
+          "#4D4241",
+          "#726260",
+          "#958583",
+          "#B6ABAA",
+          "#D6CFCE",
+          "#F0EEED"
+        ]
+      },
+      "sage": {
+        "role": "neutral",
+        "displayName": "Sage Page",
+        "canonical": "--sage on :root (RGB channels), oklch(92.3% 0.020 138.4)",
+        "tonalRamp": [
+          "#0A0B0A",
+          "#242723",
+          "#41473F",
+          "#60695E",
+          "#848C81",
+          "#AAB0A8",
+          "#CFD2CE",
+          "#EDEFED"
+        ]
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Mist Page",
+        "canonical": "--mist on :root (RGB channels), oklch(91.4% 0.016 262.8)",
+        "tonalRamp": [
+          "#0B0B0C",
+          "#25262A",
+          "#42454C",
+          "#616670",
+          "#848993",
+          "#AAAEB5",
+          "#CFD1D5",
+          "#EDEEF0"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Passport Ink",
+        "canonical": "--ink on :root (RGB channels), oklch(26.5% 0.055 270.6)",
+        "tonalRamp": [
+          "#0A0B0F",
+          "#222632",
+          "#3D445B",
+          "#5A6586",
+          "#7D88A9",
+          "#A5ADC5",
+          "#CCD1DE",
+          "#ECEEF4"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "--ink-soft on :root (RGB channels), oklch(43.1% 0.034 273.9)",
+        "tonalRamp": [
+          "#0A0B0D",
+          "#24262E",
+          "#414452",
+          "#60657A",
+          "#83889D",
+          "#A9ADBC",
+          "#CED1D9",
+          "#EDEEF2"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "--rule on :root (RGB channels), oklch(26.5% 0.055 270.6)",
+        "tonalRamp": [
+          "#0A0B0F",
+          "#222632",
+          "#3D445B",
+          "#5A6586",
+          "#7D88A9",
+          "#A5ADC5",
+          "#CCD1DE",
+          "#ECEEF4"
+        ]
+      },
+      "guilloche-a": {
+        "role": "neutral",
+        "displayName": "Guilloche A",
+        "canonical": "--guilloche-a on :root (RGB channels), oklch(65.6% 0.096 13.2)",
+        "tonalRamp": [
+          "#110909",
+          "#381E21",
+          "#65343A",
+          "#944D56",
+          "#B8727A",
+          "#D19FA3",
+          "#E6C9CB",
+          "#F8EBEC"
+        ]
+      },
+      "guilloche-b": {
+        "role": "neutral",
+        "displayName": "Guilloche B",
+        "canonical": "--guilloche-b on :root (RGB channels), oklch(66.7% 0.064 150.4)",
+        "tonalRamp": [
+          "#080C09",
+          "#1D2A1F",
+          "#324C38",
+          "#4A7153",
+          "#6F9477",
+          "#9CB6A1",
+          "#C7D5C9",
+          "#EAF0EB"
+        ]
+      },
+      "hologram-peach": {
+        "role": "neutral",
+        "displayName": "Hologram Peach (decorative)",
+        "canonical": "rgb(255 200 150 / .5) literal stop in the Hologram conic-gradient (passport/index.tsx), theme-independent, oklch(87.0% 0.090 63.5)",
+        "tonalRamp": [
+          "#0F0A06",
+          "#302214",
+          "#573B21",
+          "#81572E",
+          "#A4784F",
+          "#BF9E81",
+          "#D9C5B4",
+          "#F5EDE5"
+        ]
+      },
+      "hologram-mint": {
+        "role": "neutral",
+        "displayName": "Hologram Mint (decorative)",
+        "canonical": "rgb(150 220 195 / .5) literal stop in the Hologram conic-gradient (passport/index.tsx), theme-independent, oklch(84.1% 0.079 170.0)",
+        "tonalRamp": [
+          "#070D0A",
+          "#162A23",
+          "#254A3E",
+          "#346E5B",
+          "#56907C",
+          "#87AFA0",
+          "#B8D0C6",
+          "#E7F1ED"
+        ]
+      },
+      "hologram-periwinkle": {
+        "role": "neutral",
+        "displayName": "Hologram Periwinkle (decorative)",
+        "canonical": "rgb(150 180 245 / .45) literal stop in the Hologram conic-gradient (passport/index.tsx), theme-independent, oklch(77.2% 0.099 265.1)",
+        "tonalRamp": [
+          "#080B12",
+          "#1C2537",
+          "#324163",
+          "#496093",
+          "#6981B7",
+          "#92A5CC",
+          "#BEC9E2",
+          "#EAEFF9"
+        ]
+      },
+      "hologram-pink": {
+        "role": "neutral",
+        "displayName": "Hologram Pink (decorative)",
+        "canonical": "rgb(245 170 200 / .5) literal stop in the Hologram conic-gradient (passport/index.tsx), theme-independent, oklch(81.8% 0.095 353.7)",
+        "tonalRamp": [
+          "#10090C",
+          "#321E26",
+          "#5A3444",
+          "#864C65",
+          "#AA6D86",
+          "#C496A8",
+          "#DDC0CB",
+          "#F7EBEF"
+        ]
+      },
+      "burgundy-dark": {
+        "role": "primary",
+        "displayName": "Cover Burgundy (dark theme)",
+        "canonical": "--burgundy on .dark (RGB channels), oklch(43.9% 0.132 14.4)",
+        "tonalRamp": [
+          "#130809",
+          "#3D1A1E",
+          "#6F2C35",
+          "#A3404E",
+          "#C86872",
+          "#DD999E",
+          "#EEC5C8",
+          "#FCE9EA"
+        ]
+      },
+      "burgundy-deep-dark": {
+        "role": "primary",
+        "displayName": "Cover Burgundy Deep (dark theme)",
+        "canonical": "--burgundy-deep on .dark (RGB channels), oklch(22.9% 0.063 9.6)",
+        "tonalRamp": [
+          "#0F0A0A",
+          "#322123",
+          "#5B3B40",
+          "#86575E",
+          "#A97B81",
+          "#C5A4A8",
+          "#DFCBCE",
+          "#F5ECED"
+        ]
+      },
+      "on-burgundy-dark": {
+        "role": "secondary",
+        "displayName": "Gold Thread (dark theme)",
+        "canonical": "--on-burgundy on .dark (RGB channels), oklch(90.5% 0.068 88.8)",
+        "tonalRamp": [
+          "#0D0B07",
+          "#2C2616",
+          "#504425",
+          "#766436",
+          "#99885C",
+          "#B9AD90",
+          "#D7D1C0",
+          "#F1EEE7"
+        ]
+      },
+      "gold-dark": {
+        "role": "secondary",
+        "displayName": "Pressed Gold (dark theme)",
+        "canonical": "--gold on .dark (RGB channels), oklch(78.4% 0.101 85.4)",
+        "tonalRamp": [
+          "#0E0B05",
+          "#30250B",
+          "#57410C",
+          "#80610A",
+          "#A38542",
+          "#C0AC80",
+          "#DCD0B7",
+          "#F3EEE3"
+        ]
+      },
+      "stamp-red-dark": {
+        "role": "tertiary",
+        "displayName": "Entry Red (dark theme)",
+        "canonical": "--stamp-red on .dark (RGB channels), oklch(69.6% 0.139 15.8)",
+        "tonalRamp": [
+          "#130808",
+          "#3E191D",
+          "#712A32",
+          "#A63D4B",
+          "#CB656F",
+          "#DF989B",
+          "#EFC5C6",
+          "#FCE9EA"
+        ]
+      },
+      "stamp-navy-dark": {
+        "role": "tertiary",
+        "displayName": "Consular Navy (dark theme)",
+        "canonical": "--stamp-navy on .dark (RGB channels), oklch(74.4% 0.072 242.4)",
+        "tonalRamp": [
+          "#070C0F",
+          "#192834",
+          "#2B485F",
+          "#3F6B8C",
+          "#658EAE",
+          "#96B2C8",
+          "#C3D3E0",
+          "#E9EFF5"
+        ]
+      },
+      "stamp-green-dark": {
+        "role": "tertiary",
+        "displayName": "Customs Green (dark theme)",
+        "canonical": "--stamp-green on .dark (RGB channels), oklch(73.8% 0.084 153.8)",
+        "tonalRamp": [
+          "#070D09",
+          "#182C1E",
+          "#294F36",
+          "#3C7450",
+          "#639774",
+          "#95B89F",
+          "#C3D7C8",
+          "#E8F1EB"
+        ]
+      },
+      "stamp-plum-dark": {
+        "role": "tertiary",
+        "displayName": "Seal Plum (dark theme)",
+        "canonical": "--stamp-plum on .dark (RGB channels), oklch(72.0% 0.096 345.2)",
+        "tonalRamp": [
+          "#10090C",
+          "#351E2B",
+          "#5F354D",
+          "#8C4E72",
+          "#B07395",
+          "#CB9FB6",
+          "#E2C9D6",
+          "#F6EBF1"
+        ]
+      },
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "Security Ivory (dark theme)",
+        "canonical": "--paper on .dark (RGB channels), oklch(17.0% 0.018 359.6)",
+        "tonalRamp": [
+          "#0C0B0B",
+          "#2A2526",
+          "#4B4245",
+          "#6F6266",
+          "#928589",
+          "#B4ABAE",
+          "#D5CFD1",
+          "#F0EEEE"
+        ]
+      },
+      "paper-raised-dark": {
+        "role": "neutral",
+        "displayName": "Laid Paper (dark theme)",
+        "canonical": "--paper-raised on .dark (RGB channels), oklch(20.9% 0.026 358.0)",
+        "tonalRamp": [
+          "#0D0A0B",
+          "#2B2426",
+          "#4E4145",
+          "#736066",
+          "#968389",
+          "#B7AAAE",
+          "#D6CFD1",
+          "#F1EDEE"
+        ]
+      },
+      "rose-dark": {
+        "role": "neutral",
+        "displayName": "Rose Page (dark theme)",
+        "canonical": "--rose on .dark (RGB channels), oklch(24.9% 0.043 1.0)",
+        "tonalRamp": [
+          "#0E0A0B",
+          "#2E2326",
+          "#543E44",
+          "#7C5C64",
+          "#9F7F88",
+          "#BEA7AD",
+          "#DACDD0",
+          "#F2EDEE"
+        ]
+      },
+      "sage-dark": {
+        "role": "neutral",
+        "displayName": "Sage Page (dark theme)",
+        "canonical": "--sage on .dark (RGB channels), oklch(25.2% 0.013 150.1)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#252725",
+          "#424642",
+          "#616862",
+          "#848B85",
+          "#AAAFAB",
+          "#CFD2CF",
+          "#EDEFEE"
+        ]
+      },
+      "mist-dark": {
+        "role": "neutral",
+        "displayName": "Mist Page (dark theme)",
+        "canonical": "--mist on .dark (RGB channels), oklch(23.9% 0.023 277.1)",
+        "tonalRamp": [
+          "#0B0B0D",
+          "#25262B",
+          "#42444E",
+          "#626574",
+          "#868896",
+          "#ABADB7",
+          "#CFD1D6",
+          "#EEEEF1"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Passport Ink (dark theme)",
+        "canonical": "--ink on .dark (RGB channels), oklch(92.8% 0.025 81.1)",
+        "tonalRamp": [
+          "#0C0B09",
+          "#292621",
+          "#4A443A",
+          "#6E6556",
+          "#90887A",
+          "#B3ADA3",
+          "#D4D0CB",
+          "#F0EEEC"
+        ]
+      },
+      "ink-soft-dark": {
+        "role": "neutral",
+        "displayName": "Faded Ink (dark theme)",
+        "canonical": "--ink-soft on .dark (RGB channels), oklch(76.9% 0.027 67.4)",
+        "tonalRamp": [
+          "#0C0B09",
+          "#2A2521",
+          "#4C433A",
+          "#716356",
+          "#948779",
+          "#B5ACA3",
+          "#D5D0CB",
+          "#F0EEEC"
+        ]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Rule (dark theme)",
+        "canonical": "--rule on .dark (RGB channels), oklch(84.2% 0.086 88.8)",
+        "tonalRamp": [
+          "#0D0B06",
+          "#2E2510",
+          "#53431A",
+          "#7A6324",
+          "#9D874F",
+          "#BCAD88",
+          "#D9D0BB",
+          "#F2EEE5"
+        ]
+      },
+      "guilloche-a-dark": {
+        "role": "neutral",
+        "displayName": "Guilloche A (dark theme)",
+        "canonical": "--guilloche-a on .dark (RGB channels), oklch(78.4% 0.101 85.4)",
+        "tonalRamp": [
+          "#0E0B05",
+          "#30250B",
+          "#57410C",
+          "#80610A",
+          "#A38542",
+          "#C0AC80",
+          "#DCD0B7",
+          "#F3EEE3"
+        ]
+      },
+      "guilloche-b-dark": {
+        "role": "neutral",
+        "displayName": "Guilloche B (dark theme)",
+        "canonical": "--guilloche-b on .dark (RGB channels), oklch(43.9% 0.132 14.4)",
+        "tonalRamp": [
+          "#130809",
+          "#3D1A1E",
+          "#6F2C35",
+          "#A3404E",
+          "#C86872",
+          "#DD999E",
+          "#EEC5C8",
+          "#FCE9EA"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Engraved Display",
+        "purpose": "The hero name only; SVG text at 112 units in a 540-unit viewBox scaled to clamp(280px, 40vw, 560px) wide, intaglio hatch fill and outline, sr-only copy."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Section titles; burgundy in light, gold in dark."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Role line under the hero name, max 26ch."
+      },
+      "greeting": {
+        "displayName": "Greeting",
+        "purpose": "Italic salutation inside the hero h1, above the name."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sub-section heads and school name; 1.875rem for employers, 1.625rem for project names."
+      },
+      "title-lead": {
+        "displayName": "Lead Title",
+        "purpose": "Project name on a lead visa spread."
+      },
+      "role": {
+        "displayName": "Role",
+        "purpose": "Italic serif job role and degree lines."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "GPA numeral on the education certificate, customs green."
+      },
+      "metric": {
+        "displayName": "Metric",
+        "purpose": "A project's measured result on an employer page, customs green."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running prose, max 56ch."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Card descriptions, highlight bullets, chat text."
+      },
+      "label": {
+        "displayName": "Field Label",
+        "purpose": "Uppercase tracked mono captions for document fields; never a section eyebrow."
+      },
+      "label-rail": {
+        "displayName": "Rail Label",
+        "purpose": "Navigation captions on the leather rail and bottom tabs; data-page captions on phones."
+      },
+      "data": {
+        "displayName": "Field Value",
+        "purpose": "Uppercase mono values with tabular numerals; skill names and contact details mixed case."
+      },
+      "data-period": {
+        "displayName": "Period",
+        "purpose": "Date ranges on employer pages and the certificate."
+      },
+      "data-compact": {
+        "displayName": "Compact Data",
+        "purpose": "Visa type and stack values; the employer-page tech line."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "All button labels, uppercase mono."
+      },
+      "button-compact": {
+        "displayName": "Compact Button",
+        "purpose": "Buttons inside visa plates; cover language toggles."
+      }
+    },
+    "shadows": [
+      {
+        "name": "data-page",
+        "value": "0 40px 70px -40px rgb(var(--burgundy-deep) / 0.55), 0 2px 6px -2px rgb(0 0 0 / 0.12)",
+        "purpose": "Hero data page, the heaviest sheet."
+      },
+      {
+        "name": "record-page",
+        "value": "0 30px 60px -44px rgb(var(--burgundy-deep) / 0.55)",
+        "purpose": "Employer record pages; the education certificate uses alpha 0.5."
+      },
+      {
+        "name": "visa-plate",
+        "value": "0 24px 50px -36px rgb(var(--burgundy-deep) / 0.5)",
+        "purpose": "Project plates at rest."
+      },
+      {
+        "name": "visa-plate-hover",
+        "value": "0 32px 60px -34px rgb(var(--burgundy-deep) / 0.6)",
+        "purpose": "Project plates on hover, with a 2px lift."
+      },
+      {
+        "name": "application",
+        "value": "0 30px 60px -40px rgb(var(--burgundy-deep) / 0.5)",
+        "purpose": "Contact form."
+      },
+      {
+        "name": "button-primary",
+        "value": "inset 0 0 0 1px rgb(var(--on-burgundy) / 0.25), 0 6px 14px -8px rgb(var(--burgundy-deep) / 0.7)",
+        "purpose": "Embossed gold inner edge plus short shade."
+      },
+      {
+        "name": "button-primary-hover",
+        "value": "inset 0 0 0 1px rgb(var(--on-burgundy) / 0.45), 0 10px 20px -10px rgb(var(--burgundy-deep) / 0.8)",
+        "purpose": "Primary button hover."
+      },
+      {
+        "name": "float-button",
+        "value": "0 12px 24px -10px rgb(var(--burgundy-deep) / 0.8)",
+        "purpose": "Floating assistant button."
+      },
+      {
+        "name": "dialog",
+        "value": "0 40px 80px -30px rgb(0 0 0 / 0.45)",
+        "purpose": "Chat assistant panel."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid rgb(var(--gold)); outline-offset: 3px",
+        "purpose": "Global :focus-visible treatment."
+      },
+      {
+        "name": "input-focus",
+        "value": "0 0 0 3px rgb(var(--stamp-navy) / 0.14)",
+        "purpose": "Document input focus ring with navy border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The one easing curve for every transition and the stamp press."
+      },
+      {
+        "name": "stamp-press",
+        "value": "scale 1.35 -> 1, opacity 0 -> 0.88, 320ms, out-expo, 150ms stagger",
+        "purpose": "Stamps land once in the hero and on form success; stamps on employer pages, visa plates and the certificate are static."
+      },
+      {
+        "name": "hover-lift",
+        "value": "translateY(-1px), 200ms out-expo; active translateY(1px)",
+        "purpose": "Buttons."
+      },
+      {
+        "name": "card-lift",
+        "value": "translateY(-2px) + shadow, 300ms out-expo; image scale 1.03 over 500ms",
+        "purpose": "Visa plates."
+      },
+      {
+        "name": "link-draw",
+        "value": "1px underline grows 0% -> 100% width, 300ms out-expo",
+        "purpose": "Contact links."
+      },
+      {
+        "name": "dialog-enter",
+        "value": "opacity 0 -> 1, y 16px -> 0, 250ms out-expo",
+        "purpose": "Chat panel opening."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transitions and animations 0.01ms; stamps skip the press",
+        "purpose": "prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Embossed burgundy action: download resume, send, live demo.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 17V3\"/><path d=\"m6 11 6 6 6-6\"/><path d=\"M19 21H5\"/></svg>Download resume</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 3px; border: 1px solid rgb(var(--burgundy-deep)); padding: 14px 24px; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.8125rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: rgb(var(--on-burgundy)); background-color: rgb(var(--burgundy)); box-shadow: inset 0 0 0 1px rgb(var(--on-burgundy) / 0.25), 0 6px 14px -8px rgb(var(--burgundy-deep) / 0.7); cursor: pointer; transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px rgb(var(--on-burgundy) / 0.45), 0 10px 20px -10px rgb(var(--burgundy-deep) / 0.8); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid rgb(var(--gold)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Navy outline action: contact, view code, social links.",
+      "html": "<button class=\"ds-btn-secondary\">Contact<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 3px; border: 1px solid rgb(var(--stamp-navy)); background: transparent; padding: 14px 24px; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.8125rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: rgb(var(--stamp-navy)); cursor: pointer; transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-secondary:hover { background-color: rgb(var(--stamp-navy) / 0.07); transform: translateY(-1px); } .ds-btn-secondary:active { transform: translateY(1px); } .ds-btn-secondary:focus-visible { outline: 2px solid rgb(var(--gold)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Document Input",
+      "kind": "input",
+      "refersTo": "input-document",
+      "description": "Form box with the field caption printed inside its top-left corner.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\" for=\"ds-name\">Full name</label><input id=\"ds-name\" class=\"ds-doc-input\" type=\"text\" value=\"Pham Hai Nam\"></div>",
+      "css": ".ds-field { position: relative; max-width: 360px; } .ds-field-label { position: absolute; left: 16px; top: 10px; pointer-events: none; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.6875rem; line-height: 1.2; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--ink-soft)); } .ds-doc-input { display: block; width: 100%; box-sizing: border-box; border-radius: 3px; border: 1px solid rgb(var(--rule) / 0.3); background: rgb(var(--paper-raised)); padding: 24px 16px 10px; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.9375rem; letter-spacing: 0.04em; color: rgb(var(--ink)); caret-color: rgb(var(--burgundy)); outline: none; transition: border-color 200ms, box-shadow 200ms; } .ds-doc-input:focus { border-color: rgb(var(--stamp-navy)); box-shadow: 0 0 0 3px rgb(var(--stamp-navy) / 0.14); }"
+    },
+    {
+      "name": "Leather Rail Navigation",
+      "kind": "nav",
+      "refersTo": "nav-rail",
+      "description": "The passport cover down the left edge: crest, section links with gold active hairline.",
+      "html": "<nav class=\"ds-rail\"><div class=\"ds-rail-crest\">HN</div><a class=\"ds-rail-item ds-active\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20\"/></svg><span>Data page</span><i></i></a><a class=\"ds-rail-item\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2\"/></svg><span>Visas</span><i></i></a></nav>",
+      "css": ".ds-rail { width: 96px; display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 24px 8px; background-color: rgb(var(--burgundy)); background-image: linear-gradient(160deg, rgb(255 255 255 / 0.06), rgb(0 0 0 / 0.18)); color: rgb(var(--on-burgundy)); box-sizing: border-box; } .ds-rail-crest { align-self: center; width: 56px; height: 56px; margin-bottom: 24px; border: 2px solid rgb(var(--gold)); border-radius: 50%; display: grid; place-items: center; color: rgb(var(--gold)); font-family: \"Noto Serif Display\", Georgia, serif; font-weight: 700; font-size: 20px; } .ds-rail-item { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 4px; border-radius: 4px; text-decoration: none; color: rgb(var(--on-burgundy) / 0.75); transition: background-color 200ms, color 200ms; } .ds-rail-item span { font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.625rem; line-height: 1.25; text-transform: uppercase; letter-spacing: 0.12em; text-align: center; } .ds-rail-item i { display: block; width: 24px; height: 1px; background: rgb(var(--gold)); opacity: 0; transition: opacity 200ms; } .ds-rail-item:hover { background: rgb(0 0 0 / 0.1); color: rgb(var(--on-burgundy)); } .ds-rail-item.ds-active { background: rgb(0 0 0 / 0.2); color: rgb(var(--on-burgundy)); } .ds-rail-item.ds-active i { opacity: 1; } .ds-rail-item:focus-visible { outline: 2px solid rgb(var(--gold)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Field Row",
+      "kind": "custom",
+      "refersTo": "card-data-page",
+      "description": "Ruled label and value pairs used on the data page, visa plates, skill rows and contact details.",
+      "html": "<dl class=\"ds-fields\"><div><dt>Surname</dt><dd>Phạm</dd></div><div><dt>Occupation</dt><dd>Software Engineer</dd></div><div><dt>Status</dt><dd><b></b>Open to work</dd></div></dl>",
+      "css": ".ds-fields { margin: 0; max-width: 360px; border-top: 1px solid rgb(var(--rule) / 0.2); } .ds-fields div { padding: 10px 0; border-bottom: 1px solid rgb(var(--rule) / 0.2); } .ds-fields dt { font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.6875rem; line-height: 1.2; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--ink-soft)); } .ds-fields dd { margin: 2px 0 0; display: flex; align-items: center; gap: 8px; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.9375rem; letter-spacing: 0.06em; text-transform: uppercase; font-variant-numeric: tabular-nums; color: rgb(var(--ink)); } .ds-fields dd b { width: 8px; height: 8px; border-radius: 50%; background: rgb(var(--stamp-green)); }"
+    },
+    {
+      "name": "Employer Record Page",
+      "kind": "card",
+      "refersTo": "card-employer-page",
+      "description": "Laid-paper page per employer: record column with stamp, projects with green metric, dash bullets and a dot-separated mono tech line.",
+      "html": "<article class=\"ds-record\"><header class=\"ds-record-side\"><h3>Kozocom</h3><p class=\"ds-record-role\">Software Engineer</p><p class=\"ds-record-period\">03/2025 – Present</p><p class=\"ds-record-loc\">Da Nang, Vietnam</p></header><section class=\"ds-record-main\"><div class=\"ds-record-top\"><div><h4>Meeting AI</h4><p class=\"ds-record-kind\">Real-time meeting analysis for enterprise clients</p></div><div class=\"ds-metric\"><b>−70%</b><span>Summarization time</span></div></div><ul><li>Built streaming transcription and LLM summaries for Japanese meetings.</li><li>Cut summarization latency with chunked RAG retrieval.</li></ul><p class=\"ds-tech\"><span>NestJS</span><i>·</i><span>PostgreSQL</span><i>·</i><span>OpenAI</span></p></section></article>",
+      "css": ".ds-record { display: grid; grid-template-columns: 220px minmax(0,1fr); max-width: 760px; overflow: hidden; border-radius: 10px; border: 1px solid rgb(var(--rule) / 0.25); background: rgb(var(--paper-raised)); box-shadow: 0 30px 60px -44px rgb(var(--burgundy-deep) / 0.55); color: rgb(var(--ink)); } .ds-record-side { padding: 32px; border-right: 1px solid rgb(var(--rule) / 0.2); } .ds-record h3 { margin: 0; font-family: \"Noto Serif Display\", Georgia, serif; font-size: 1.875rem; font-weight: 700; line-height: 1.25; } .ds-record-role { margin: 4px 0 0; font-family: \"Noto Serif Display\", Georgia, serif; font-size: 1.125rem; font-style: italic; color: rgb(var(--ink-soft)); } .ds-record-period { margin: 20px 0 0; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; font-variant-numeric: tabular-nums; } .ds-record-loc { margin: 8px 0 0; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.04em; color: rgb(var(--ink-soft)); } .ds-record-main { padding: 32px; } .ds-record-top { display: flex; justify-content: space-between; gap: 32px; align-items: flex-start; } .ds-record h4 { margin: 0; font-family: \"Noto Serif Display\", Georgia, serif; font-size: 1.625rem; font-weight: 700; line-height: 1.25; } .ds-record-kind { margin: 6px 0 0; font-size: 0.9375rem; line-height: 1.625; color: rgb(var(--ink-soft)); } .ds-metric { text-align: right; flex-shrink: 0; } .ds-metric b { display: block; font-family: \"Noto Serif Display\", Georgia, serif; font-size: 3rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: rgb(var(--stamp-green)); } .ds-metric span { display: block; margin-top: 8px; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--ink-soft)); } .ds-record ul { list-style: none; margin: 20px 0 0; padding: 0; } .ds-record li { position: relative; padding-left: 24px; margin-top: 10px; font-size: 0.9375rem; line-height: 1.625; } .ds-record li::before { content: \"\"; position: absolute; left: 0; top: 0.8em; width: 12px; height: 1px; background: rgb(var(--burgundy)); } .ds-tech { display: flex; flex-wrap: wrap; gap: 4px 8px; margin: 20px 0 0; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.8125rem; letter-spacing: 0.02em; color: rgb(var(--ink-soft)); } .ds-tech i { font-style: normal; color: rgb(var(--rule) / 0.5); }"
+    },
+    {
+      "name": "Education Certificate",
+      "kind": "card",
+      "refersTo": "card-certificate",
+      "description": "Sage page with a pressed plum seal, GPA figure in customs green and dash-bulleted honours.",
+      "html": "<figure class=\"ds-cert\"><span class=\"ds-cert-seal\">VALEDICTORIAN</span><figcaption>Education</figcaption><h3>Dong A University</h3><p class=\"ds-cert-degree\">B.Eng. Software Engineering</p><p class=\"ds-cert-period\">2021 – 2025</p><div class=\"ds-cert-gpa\"><span class=\"ds-cert-cap\">GPA</span><p><b>3.81</b><small>/ 4.0</small></p></div></figure>",
+      "css": ".ds-cert { position: relative; max-width: 380px; margin: 0; padding: 32px; overflow: hidden; border-radius: 10px; border: 1px solid rgb(var(--rule) / 0.25); background: rgb(var(--sage)); box-shadow: 0 30px 60px -44px rgb(var(--burgundy-deep) / 0.5); color: rgb(var(--ink)); } .ds-cert-seal { position: absolute; right: 24px; top: 24px; width: 96px; height: 96px; display: grid; place-items: center; border-radius: 50%; border: 4px solid currentColor; outline: 1.5px solid currentColor; outline-offset: -10px; color: rgb(var(--stamp-plum)); opacity: 0.88; transform: rotate(-11deg); font-family: \"JetBrains Mono\", ui-monospace, monospace; font-weight: 700; font-size: 9px; letter-spacing: 0.1em; } .ds-cert figcaption, .ds-cert-cap { font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.6875rem; line-height: 1.2; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--ink-soft)); } .ds-cert h3 { max-width: 14ch; margin: 16px 0 0; font-family: \"Noto Serif Display\", Georgia, serif; font-size: 1.75rem; font-weight: 700; line-height: 1.25; } .ds-cert-degree { margin: 4px 0 0; font-family: \"Noto Serif Display\", Georgia, serif; font-size: 1.125rem; font-style: italic; color: rgb(var(--ink-soft)); } .ds-cert-period { margin: 12px 0 0; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; } .ds-cert-gpa { margin-top: 32px; padding-top: 20px; border-top: 1px solid rgb(var(--rule) / 0.2); } .ds-cert-gpa p { margin: 8px 0 0; font-family: \"Noto Serif Display\", Georgia, serif; line-height: 1; } .ds-cert-gpa b { font-size: 5rem; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: rgb(var(--stamp-green)); } .ds-cert-gpa small { margin-left: 8px; font-size: 1.5rem; font-weight: 500; color: rgb(var(--ink-soft)); }"
+    },
+    {
+      "name": "Entry Stamp",
+      "kind": "custom",
+      "refersTo": "card-visa-mist",
+      "description": "Inked oval mark, rotated and speckled, that presses in once.",
+      "html": "<div class=\"ds-stamp\"><svg viewBox=\"0 0 240 140\" width=\"200\" aria-hidden=\"true\"><defs><filter id=\"ds-ink\" x=\"-5%\" y=\"-5%\" width=\"110%\" height=\"110%\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.85\" numOctaves=\"2\" seed=\"3\" result=\"noise\"/><feColorMatrix in=\"noise\" type=\"matrix\" values=\"0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.5 1.6\" result=\"mask\"/><feComposite in=\"SourceGraphic\" in2=\"mask\" operator=\"in\"/></filter></defs><g filter=\"url(#ds-ink)\" font-family=\"JetBrains Mono, monospace\" font-weight=\"700\" text-anchor=\"middle\" fill=\"currentColor\"><ellipse cx=\"120\" cy=\"70\" rx=\"114\" ry=\"64\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"/><ellipse cx=\"120\" cy=\"70\" rx=\"103\" ry=\"53\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><text x=\"120\" y=\"50\" font-size=\"17\" letter-spacing=\"4\">KOZOCOM</text><text x=\"120\" y=\"84\" font-size=\"25\">MAR 2025</text><text x=\"120\" y=\"108\" font-size=\"13\" letter-spacing=\"3\">ENTRY · DA NANG</text></g></svg></div>",
+      "css": ".ds-stamp { display: inline-block; color: rgb(var(--stamp-navy)); opacity: 0.88; transform: rotate(-9deg); animation: ds-press 320ms cubic-bezier(0.16, 1, 0.3, 1) both; } @keyframes ds-press { from { opacity: 0; transform: rotate(-9deg) scale(1.35); } to { opacity: 0.88; transform: rotate(-9deg) scale(1); } } @media (prefers-reduced-motion: reduce) { .ds-stamp { animation: none; } }"
+    },
+    {
+      "name": "Visa Plate Header",
+      "kind": "card",
+      "refersTo": "card-visa-rose",
+      "description": "Tinted security page with serif VISA header in its matching stamp ink and a destination caption.",
+      "html": "<article class=\"ds-visa\"><header><span class=\"ds-visa-title\">Visa</span><span class=\"ds-visa-dest\">gomi.tokyo.jp</span></header><div class=\"ds-visa-body\"><h3>Gomi Tokyo<span>Digital waste management contract platform</span></h3><dl><dt>Type</dt><dd>WEB</dd><dt>Stack</dt><dd>PHP · Laravel · MySQL · HTML/CSS</dd></dl></div></article>",
+      "css": ".ds-visa { max-width: 420px; overflow: hidden; border-radius: 10px; border: 1px solid rgb(var(--rule) / 0.25); background: rgb(var(--rose)); box-shadow: 0 24px 50px -36px rgb(var(--burgundy-deep) / 0.5); transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-visa:hover { transform: translateY(-2px); box-shadow: 0 32px 60px -34px rgb(var(--burgundy-deep) / 0.6); } .ds-visa header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 20px 24px 12px; border-bottom: 1px solid rgb(var(--rule) / 0.2); } .ds-visa-title { font-family: \"Noto Serif Display\", Georgia, serif; font-size: 1.75rem; font-weight: 700; line-height: 1; text-transform: uppercase; letter-spacing: 0.14em; color: rgb(var(--stamp-red)); } .ds-visa-dest { font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.06em; color: rgb(var(--ink)); } .ds-visa-body { padding: 20px 24px; } .ds-visa h3 { margin: 0; font-family: \"Noto Serif Display\", Georgia, serif; font-size: 1.625rem; font-weight: 700; line-height: 1.25; color: rgb(var(--ink)); } .ds-visa h3 span { display: block; margin-top: 4px; font-size: 1rem; font-weight: 500; font-style: italic; color: rgb(var(--ink-soft)); } .ds-visa dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 24px; margin: 20px 0 0; padding-top: 16px; border-top: 1px solid rgb(var(--rule) / 0.2); } .ds-visa dt { font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--ink-soft)); padding-top: 2px; } .ds-visa dd { margin: 0; font-family: \"JetBrains Mono\", ui-monospace, monospace; font-size: 0.8125rem; letter-spacing: 0.06em; color: rgb(var(--ink)); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Well-Travelled Passport",
+    "overview": "The site is a passport, and every surface answers to that object. Pages are security paper: warm ivory with fine rose and green interference waves drawn procedurally behind the content. The burgundy cover leather is the frame. It runs down the left edge as a rail on desktop, becomes a strip on top and tabs along the bottom on smaller screens, closes the page as the footer, and heads every form and dialog. Identity is a data page. Each employer is a record page carrying its own entry stamp, projects are visa plates, education is a certificate plate, and contact is an application form.\n\nLight theme is the open book: pages lit, ink navy text, burgundy headings. Dark theme is the closed cover: burgundy-black leather ground, cream ink, gold-blocked headings and name, guilloché dimmed almost away. Both themes share one token set through CSS custom properties (`--paper`, `--ink`, and so on, stored as RGB channels so Tailwind can apply alpha), swapped by a `.dark` class.\n\nDensity is moderate and documentary: ruled field rows, tracked mono captions, generous section spacing. Ornament is real security-print vocabulary (guilloché, rosette, hologram seal, intaglio hatching, machine-readable zone), never generic decoration. The world deliberately replaces a dark gradient developer template: no gradient-filled name, no tilted avatar card, no logo marquee, no grid of identical cards.",
+    "keyCharacteristics": [
+      "Security-paper grounds (paper, laid paper, rose, sage, mist) with procedural guilloché wave fields behind content.",
+      "Burgundy leather with a fine noise grain marks every cover element: rail, strips, footer, form and chat headers, floating button.",
+      "Three typographic hands: engraved serif for names, headings and result figures, OCR-style mono for anything the document machine prints, plain sans for prose.",
+      "Stamp inks (red, navy, green, plum) are signal colours, pressed with an ink-speckle filter and slight rotation.",
+      "Data is shown as ruled label and value rows or dot-separated mono lines, never as chips or tag clouds.",
+      "Motion is a single press: stamps land once and then stay still."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Ink Rule",
+        "body": "Stamp inks are for marks and signals: stamps, visa headers, success and error states, the status dot, result figures, and the navy document action (secondary button, input focus). They never fill a surface; the only fill allowed is a 7% navy wash on secondary-button hover.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gilt Rule Rule",
+        "body": "In dark theme every hairline is gold at low alpha and every heading is gold. Gold is foil, so it stays thin: hairlines, crest, focus ring, headings, dash bullets. Never a gold panel or gold button.",
+        "section": "colors"
+      },
+      {
+        "name": "The Leather Is The Cover Rule",
+        "body": "The grained burgundy leather texture belongs only to cover elements (navigation, footer, form and dialog headers, the floating button). Content cards are paper, never leather.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Rainbow Rule",
+        "body": "The hologram stops are the only multi-hue values in the system and live only inside the hologram seal.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Hands Rule",
+        "body": "Serif for what would be engraved or printed large, mono for what the passport machine prints, sans only for running prose. A heading is never mono; a field value is never serif.",
+        "section": "typography"
+      },
+      {
+        "name": "The Caption Is Not A Kicker Rule",
+        "body": "The tracked mono label style captions data that sits directly under it (a field value, a figure, an input). It is never placed as an eyebrow above a section headline.",
+        "section": "typography"
+      },
+      {
+        "name": "The Green Result Rule",
+        "body": "A big serif numeral in customs green means a measured result from the record (a metric, a GPA). Never use it for decoration or for counts with no source.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper On Desk Rule",
+        "body": "Shadows are tinted with burgundy-deep and use a negative spread at least half their blur. A neutral, centred, glowing shadow does not belong in this world.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do take every colour from the CSS custom properties (`rgb(var(--token) / alpha)`) so light and dark swap together; the hologram stops are the only fixed literals.",
+      "Do put labelled data in ruled rows: a mono uppercase caption (0.6875rem, 0.14em) over or beside a mono value, separated by rule hairlines at 20%.",
+      "Do list highlights with ruled dash bullets (12px by 1px, burgundy in light, gold in dark) and tech as a mono line with middle-dot separators.",
+      "Do frame new navigation, dialogs and form headers in the leather texture with gold-thread text and the gold crest.",
+      "Do use stamps for dated facts (employers, honours, entries, receipts), with real text only, and let them overhang the card edge above neighbouring content.",
+      "Do set measured results as a big serif numeral in customs green with a field-label caption naming the measure.",
+      "Do keep motion to the single press for stamps and 200 to 300ms out-expo lifts for hover; honour reduced motion.",
+      "Do keep headings burgundy in light and gold in dark."
+    ],
+    "donts": [
+      "Don't fill a name or heading with a gradient, tilt a photo card, run a logo marquee, or lay projects out as a grid of identical cards; that is the template this world replaced.",
+      "Don't use stamp inks as surface fills or apply leather texture to content cards.",
+      "Don't loop, wobble or re-trigger stamp animations on scroll; a stamp lands once and stays still.",
+      "Don't use the tracked mono caption as an eyebrow above a section headline.",
+      "Don't show tech skills as chips, pills or progress bars; use endorsement rows or the dot-separated tech line.",
+      "Don't use neutral glowing shadows; shadows are burgundy-deep tinted with negative spread.",
+      "Don't use the hologram stops, or any other multi-hue gradient, outside the hologram seal."
+    ]
+  }
+}

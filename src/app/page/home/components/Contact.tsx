@@ -1,326 +1,242 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
-import { Mail, Send, Github, Linkedin, Instagram, MapPin, Phone, CheckCircle2, MessageSquare, Sparkles, XCircle } from "lucide-react";
+import { Github, Instagram, Linkedin, Loader2, Send, XCircle } from "lucide-react";
 import { useSendMail } from "../../../../hooks";
 import type { EmailData } from "../../../../types/types";
+import { Crest, Stamp } from "../../../components/passport";
+import { Reveal, SectionHeading } from "../../../components/motion";
+
+const empty: EmailData = { name: "", email: "", subject: "", message: "" };
+
+const socialLinks = [
+  { name: "GitHub", Icon: Github, url: "https://github.com/HaiNam1408" },
+  { name: "LinkedIn", Icon: Linkedin, url: "https://www.linkedin.com/in/namphh" },
+  { name: "Instagram", Icon: Instagram, url: "https://www.instagram.com/namphh_" },
+];
+
+type FieldName = keyof EmailData;
+type Errors = Partial<Record<FieldName, string>>;
+
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+function Field({
+  id,
+  label,
+  error,
+  children,
+  className = "",
+}: {
+  id: string;
+  label: string;
+  error?: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={className}>
+      <div className="relative">
+        <label htmlFor={id} className="field-label pointer-events-none absolute left-4 top-2.5 z-10">
+          {label}
+        </label>
+        {children}
+      </div>
+      {error && (
+        <p id={`${id}-error`} className="mt-1.5 text-[0.8125rem] font-medium text-stamp-red">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
 
 function Contact() {
   const { t } = useTranslation();
   const { sendMail, loading, error, success } = useSendMail();
-  const [formData, setFormData] = useState<EmailData>({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState<EmailData>(empty);
+  const [sentAt, setSentAt] = useState<string | null>(null);
+  const [errors, setErrors] = useState<Errors>({});
+
+  useEffect(() => {
+    if (success) {
+      setFormData(empty);
+      setSentAt(
+        new Date()
+          .toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })
+          .toUpperCase()
+      );
+    }
+  }, [success]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const name = e.target.name as FieldName;
+    setFormData({ ...formData, [name]: e.target.value });
+    if (errors[name]) setErrors({ ...errors, [name]: undefined });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const validate = (data: EmailData): Errors => {
+    const next: Errors = {};
+    if (!data.name.trim()) next.name = t("common.passport.errors.required");
+    if (!data.email.trim()) next.email = t("common.passport.errors.required");
+    else if (!EMAIL.test(data.email.trim())) next.email = t("common.passport.errors.email");
+    if (!data.subject.trim()) next.subject = t("common.passport.errors.required");
+    if (data.message.trim().length < 10) next.message = t("common.passport.errors.message");
+    return next;
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const next = validate(formData);
+    setErrors(next);
+    const first = (["name", "email", "subject", "message"] as FieldName[]).find((k) => next[k]);
+    if (first) {
+      document.getElementById(first)?.focus();
+      return;
+    }
+    setSentAt(null);
     sendMail(formData);
   };
 
-  const socialLinks = [
-    {
-      name: "GitHub",
-      icon: <Github size={24} />,
-      url: "https://github.com/HaiNam1408",
-      color: "hover:text-gray-400",
-    },
-    {
-      name: "LinkedIn",
-      icon: <Linkedin size={24} />,
-      url: "https://www.linkedin.com/in/namphh",
-      color: "hover:text-blue-400",
-    },
-    {
-      name: "Instagram",
-      icon: <Instagram size={24} />,
-      url: "https://www.instagram.com/namphh_",
-      color: "hover:text-pink-400",
-    },
-  ];
+  const invalid = (name: FieldName) => ({
+    "aria-invalid": errors[name] ? true : undefined,
+    "aria-describedby": errors[name] ? `${name}-error` : undefined,
+  });
+  const inputClass = (name: FieldName) => `doc-input ${errors[name] ? "!border-stamp-red" : ""}`;
 
   const contactInfo = [
-    {
-      icon: <Mail size={20} />,
-      text: "namphh.dev@gmail.com",
-      href: "mailto:namphh.dev@gmail.com",
-    },
-    {
-      icon: <Phone size={20} />,
-      text: "+84 865 256 261",
-      href: "tel:+84865265261",
-    },
-    {
-      icon: <MapPin size={20} />,
-      text: "Da Nang City, Vietnam",
-      href: null,
-    },
+    { label: t("common.passport.email"), text: "namphh.dev@gmail.com", href: "mailto:namphh.dev@gmail.com" },
+    { label: t("common.passport.phone"), text: "+84 865 265 261", href: "tel:+84865265261" },
+    { label: t("common.passport.location"), text: t("common.passport.baseValue"), href: null },
   ];
 
   return (
-    <section id="contact" className="min-h-screen w-full md:py-20 md:px-4 relative">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl -z-10" />
-      
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="max-w-7xl mx-auto"
-      >
-        {/* Header */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="inline-block mb-4"
-          >
-            <span className="px-4 py-2 rounded-full bg-amber-100 dark:bg-primary/10 border border-amber-300 dark:border-primary/30 text-amber-800 dark:text-primary font-semibold text-sm flex items-center gap-2 w-fit mx-auto">
-              <MessageSquare size={16} />
-              {t("common.contactSection.badge")}
-            </span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white"
-          >
-            {t("common.contactSection.title")}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-lg text-gray-700 dark:text-gray-400"
-          >
-            {t("common.contactSection.subtitle")}
-          </motion.p>
-        </div>
+    <div className="py-24 lg:py-32">
+      <SectionHeading title={t("common.contactSection.title")} subtitle={t("common.contactSection.subtitle")} />
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left: Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            {/* Decorative gradient behind form */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-3xl blur-2xl opacity-30 -z-10" />
-            
-            <div className="bg-white/80 dark:bg-white/5 backdrop-blur-xl rounded-2xl border border-gray-300 dark:border-white/10 px-8 py-7 shadow-xl">
-              <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="text-amber-600 dark:text-primary" size={24} />
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{t("common.contactSection.formTitle")}</h3>
-              </div>
-              
-              <form onSubmit={handleSubmit} className="space-y-4 text-left">
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-300">
-                  {t("common.contactSection.name")}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border-2 border-gray-300 dark:border-white/10 focus:border-amber-500 dark:focus:border-primary focus:ring-2 focus:ring-amber-500/20 dark:focus:ring-primary/20 outline-none transition-all text-gray-900 dark:text-white placeholder:text-gray-500"
-                  placeholder="John Doe"
-                />
-              </div>
+      <Reveal y={32} className="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-16">
+        <form
+          noValidate
+          onSubmit={handleSubmit}
+          className="relative overflow-hidden rounded-[10px] border border-rule/25 bg-raised shadow-[0_30px_60px_-40px_rgb(var(--burgundy-deep)/0.5)]"
+        >
+          <div className="leather flex items-center justify-between gap-4 px-6 py-4 text-on-burgundy">
+            <h3 className="font-display text-xl font-bold">{t("common.contactSection.formTitle")}</h3>
+            <Crest className="h-9 w-9 text-gold" />
+          </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-300">
-                  {t("common.contactSection.email")}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border-2 border-gray-300 dark:border-white/10 focus:border-amber-500 dark:focus:border-primary focus:ring-2 focus:ring-amber-500/20 dark:focus:ring-primary/20 outline-none transition-all text-gray-900 dark:text-white placeholder:text-gray-500"
-                  placeholder="john@example.com"
-                />
-              </div>
+          <div className="grid gap-4 p-6 sm:grid-cols-2 sm:p-8">
+            <Field id="name" label={t("common.contactSection.name")} error={errors.name}>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                value={formData.name}
+                onChange={handleChange}
+                {...invalid("name")}
+                className={inputClass("name")}
+              />
+            </Field>
+            <Field id="email" label={t("common.contactSection.email")} error={errors.email}>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                value={formData.email}
+                onChange={handleChange}
+                {...invalid("email")}
+                className={inputClass("email")}
+              />
+            </Field>
+            <Field id="subject" label={t("common.contactSection.subject")} error={errors.subject} className="sm:col-span-2">
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                value={formData.subject}
+                onChange={handleChange}
+                {...invalid("subject")}
+                className={inputClass("subject")}
+              />
+            </Field>
+            <Field id="message" label={t("common.contactSection.message")} error={errors.message} className="sm:col-span-2">
+              <textarea
+                id="message"
+                name="message"
+                rows={6}
+                value={formData.message}
+                onChange={handleChange}
+                {...invalid("message")}
+                className={`${inputClass("message")} resize-none !pt-8`}
+              />
+            </Field>
 
-              <div>
-                <label htmlFor="subject" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-300">
-                  {t("common.contactSection.subject")}
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border-2 border-gray-300 dark:border-white/10 focus:border-amber-500 dark:focus:border-primary focus:ring-2 focus:ring-amber-500/20 dark:focus:ring-primary/20 outline-none transition-all text-gray-900 dark:text-white placeholder:text-gray-500"
-                  placeholder="Project Inquiry"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-300">
-                  {t("common.contactSection.message")}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border-2 border-gray-300 dark:border-white/10 focus:border-amber-500 dark:focus:border-primary focus:ring-2 focus:ring-amber-500/20 dark:focus:ring-primary/20 outline-none transition-all resize-none text-gray-900 dark:text-white placeholder:text-gray-500"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={loading}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-base shadow-lg transition-all ${
-                  loading
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-gradient-to-r from-primary to-amber-400 text-black hover:shadow-xl hover:shadow-primary/30"
-                }`}
-              >
+            <div className="flex flex-col gap-4 pt-2 sm:col-span-2 sm:flex-row sm:items-center">
+              <button type="submit" disabled={loading} className="btn-primary">
                 {loading ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-                    {t("common.contactSection.sending")}
-                  </>
+                  <Loader2 size={17} className="animate-spin" aria-hidden="true" />
                 ) : (
-                  <>
-                    <Send size={18} />
-                    {t("common.contactSection.send")}
-                  </>
+                  <Send size={17} strokeWidth={1.75} aria-hidden="true" />
                 )}
-              </motion.button>
+                {loading ? t("common.contactSection.sending") : t("common.contactSection.send")}
+              </button>
 
-              {success && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-xl bg-green-500/10 border border-green-500/50 text-green-600 dark:text-green-400 text-center font-semibold flex items-center justify-center gap-2"
-                >
-                  <CheckCircle2 size={20} />
-                  {t("common.contactSection.success")}
-                </motion.div>
-              )}
-              {error && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-xl bg-red-500/10 border border-red-500/50 text-red-600 dark:text-red-400 text-center font-semibold flex items-center justify-center gap-2"
-                >
-                  <XCircle size={20} />
-                  {t("common.contactSection.error")}
-                </motion.div>
-              )}
-            </form>
-            </div>
-          </motion.div>
-
-          {/* Right: Contact Info & Social */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            {/* Contact Info */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              <h3 className="text-2xl font-bold mb-6">
-                {t("common.contactSection.or")}
-              </h3>
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-center gap-4"
-                  >
-                    <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                      {info.icon}
-                    </div>
-                    {info.href ? (
-                      <a
-                        href={info.href}
-                        className="text-gray-300 hover:text-primary transition-colors"
-                      >
-                        {info.text}
-                      </a>
-                    ) : (
-                      <span className="text-gray-300">{info.text}</span>
-                    )}
-                  </motion.div>
-                ))}
+              <div role="status" aria-live="polite" className="text-[0.9375rem]">
+                {success && <span className="font-medium text-stamp-green">{t("common.contactSection.success")}</span>}
+                {error && (
+                  <span className="flex items-center gap-2 font-medium text-stamp-red">
+                    <XCircle size={18} aria-hidden="true" />
+                    {t("common.contactSection.error")}
+                  </span>
+                )}
               </div>
             </div>
+          </div>
 
-            {/* Social Links */}
-            <div className="relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-primary/10 dark:via-purple-500/10 dark:to-blue-500/10 border border-amber-200 dark:border-primary/20 shadow-lg">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-amber-300/30 dark:bg-primary/20 rounded-full blur-3xl" />
-              <div className="relative z-10">
-                <h3 className="text-center text-2xl font-bold mb-4 text-gray-800 dark:text-white">
-                  {t("common.contactSection.socialTitle")}
-                </h3>
-                <Mail className="my-5 mx-auto text-primary" size={80}/>
-                <p className="text-lg text-center text-gray-700 dark:text-gray-400 mb-6">
-                  {t("common.contactSection.amazingText")}
-                </p>
-                <div className="flex gap-4 justify-center">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.15, rotate: index % 2 === 0 ? 5 : -5 }}
-                      whileTap={{ scale: 0.9 }}
-                      className={`p-4 rounded-xl bg-white dark:bg-white/10 border-2 border-gray-300 dark:border-white/20 hover:border-amber-500 dark:hover:border-primary hover:bg-amber-50 dark:hover:bg-primary/10 transition-all shadow-md hover:shadow-xl ${social.color}`}
-                    >
-                      {social.icon}
-                    </motion.a>
-                  ))}
-                </div>
+          {success && sentAt && (
+            <Stamp
+              shape="circle"
+              ink="green"
+              lines={["MESSAGE", t("common.passport.received").toUpperCase(), sentAt]}
+              rotate={-12}
+              className="absolute bottom-6 right-6 w-28 sm:w-32"
+            />
+          )}
+        </form>
+
+        <aside>
+          <h3 className="font-display text-[1.75rem] font-bold text-ink">{t("common.contactSection.or")}</h3>
+          <dl className="mt-6 border-t border-rule/20">
+            {contactInfo.map((info) => (
+              <div key={info.label} className="flex flex-col gap-1 border-b border-rule/20 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                <dt className="field-label">{info.label}</dt>
+                <dd className="font-mono text-[0.9375rem] tracking-[0.03em] text-ink">
+                  {info.href ? (
+                    <a href={info.href} className="link-draw hover:text-burgundy dark:hover:text-gold">
+                      {info.text}
+                    </a>
+                  ) : (
+                    info.text
+                  )}
+                </dd>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
-    </section>
+            ))}
+          </dl>
+
+          <h3 className="mt-12 font-display text-[1.75rem] font-bold text-ink">{t("common.contactSection.socialTitle")}</h3>
+          <ul className="mt-6 flex flex-wrap gap-3">
+            {socialLinks.map(({ name, Icon, url }) => (
+              <li key={name}>
+                <a href={url} target="_blank" rel="noopener noreferrer" className="btn-secondary !px-4 !py-3">
+                  <Icon size={17} strokeWidth={1.5} aria-hidden="true" />
+                  {name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </Reveal>
+    </div>
   );
 }
 

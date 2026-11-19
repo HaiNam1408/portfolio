@@ -60,5 +60,92 @@
         "error": "Failed to send message. Please try again.",
         "or": "Or reach me at",
         "socialTitle": "Connect with me"
+    },
+    "passport": {
+        "nav": {
+            "home": "Data page",
+            "experience": "Experience",
+            "projects": "Projects",
+            "skills": "Skills",
+            "contact": "Contact",
+            "menu": "Sections"
+        },
+        "experience": {
+            "title": "Experience",
+            "subtitle": "Backend and AI systems shipped for enterprise, SaaS and marketplace products.",
+            "result": "Key result",
+            "stack": "Stack"
+        },
+        "credentials": {
+            "title": "Skills & Credentials",
+            "subtitle": "The tools I ship with, and the record behind them.",
+            "skills": "Skills",
+            "education": "Education",
+            "gpa": "GPA"
+        },
+        "chat": {
+            "title": "AI Assistant",
+            "by": "Built by Hainam.",
+            "empty": "Hi! I'm Nam's assistant. Ask me about his experience, AI projects, skills or how to get in touch.",
+            "placeholder": "Ask me anything...",
+            "label": "Ask the assistant",
+            "open": "Ask the AI assistant about Nam",
+            "close": "Close AI assistant",
+            "send": "Send message",
+            "stop": "Stop response",
+            "typing": "Assistant is typing",
+            "error": "Sorry, the assistant is unavailable right now. You can reach Nam directly through the contact form below."
+        },
+        "document": "Passport · Hộ chiếu",
+        "type": "Type",
+        "code": "Code",
+        "number": "No.",
+        "surname": "Surname",
+        "given": "Given names",
+        "nationality": "Nationality",
+        "nationalityValue": "Vietnamese",
+        "base": "Based in",
+        "baseValue": "Đà Nẵng, Việt Nam",
+        "occupation": "Occupation",
+        "employer": "Employer",
+        "status": "Status",
+        "statusValue": "Available for work",
+        "contactCta": "Contact me",
+        "photoAlt": "Portrait of Phạm Hải Nam",
+        "themeLight": "Switch to light pages",
+        "themeDark": "Switch to dark cover",
+        "language": "Switch language to Vietnamese",
+        "perf": {
+            "label": "Query execution time, production database at Kozocom",
+            "before": "~60 s",
+            "after": "< 1 s",
+            "note": "Indexing and query refactoring on Laravel + MySQL."
+        },
+        "stack": "Tech stack",
+        "groups": {
+            "backend": "Backend",
+            "data": "Data",
+            "frontend": "Frontend",
+            "mobile": "Mobile & tooling"
+        },
+        "entry": "Entry",
+        "visa": "Visa",
+        "visaType": "Type",
+        "typeWeb": "Web platform",
+        "typeMobile": "Mobile app",
+        "visaStack": "Stack",
+        "openProject": "Open {{title}}",
+        "received": "Received",
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location",
+        "rights": "All rights reserved.",
+        "skip": "Skip to content",
+        "statementLabel": "Results at a glance",
+        "errors": {
+            "required": "Please fill in this field.",
+            "email": "Enter an email address like name@company.com.",
+            "message": "Tell me a little more (at least 10 characters)."
+        }
     }
 }
